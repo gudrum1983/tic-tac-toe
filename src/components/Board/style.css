@@ -1,0 +1,9 @@
+.Board-Row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.Board-Status {
+  margin-bottom: 10px;
+}
