@@ -6,6 +6,20 @@ body {
   font-family: sans-serif;
   margin: 20px;
   padding: 0;
+  background-color: var(--color-bg);
+}
+
+.App-header {
+  background-color: var(--color-bg-secondary);
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: end;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-header-bt {
+  background-color: var(--color-primary);
 }
 
 h1 {
