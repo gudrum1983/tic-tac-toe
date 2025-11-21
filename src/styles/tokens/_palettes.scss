@@ -8,8 +8,12 @@
 
 $themes: (
         light: (
-                white: #ffffff,
-                black: #000000,
+                'white': (
+                        50: #ffffff
+                ),
+                'black':  (
+                        50: #000000
+                ),
                 base: (
                         10: #F5F5F5,
                         20: #EBEBEB,
@@ -45,14 +49,18 @@ $themes: (
                         10: #7cff48,
                         90: #67d05b
                 ),
-                warm: (
+                warn: (
                         10: #ffda48,
                         90: #8f8333
                 )
         ),
         dark: (
-                white: #ffffff,
-                black: #000000,
+                'white': (
+                        50: #ffffff
+                ),
+                'black':  (
+                        50: #000000
+                ),
                 base: (
                         10: #E6E6E6,
                         20: #CCCCCC,
@@ -88,14 +96,18 @@ $themes: (
                         10: #7cff48,
                         90: #67d05b
                 ),
-                warm: (
+                warn: (
                         10: #ffda48,
                         90: #8f8333
                 )
         ),
         cold: (
-                white: #ffffff,
-                black: #000000,
+                'white': (
+                        50: #ffffff
+                ),
+                'black':  (
+                        50: #000000
+                ),
                 base: (
                         10: #EBF1F5,
                         20: #E2E8EB,
@@ -131,14 +143,18 @@ $themes: (
                         10: #7cff48,
                         90: #67d05b
                 ),
-                warm: (
+                warn: (
                         10: #ffda48,
                         90: #8f8333
                 )
         ),
         warm: (
-                white: #ffffff,
-                black: #000000,
+                'white': (
+                        50: #ffffff
+                ),
+                'black':  (
+                        50: #000000
+                ),
                 base: (
                         10: #F1EBF5,
                         20: #E8E2EB,
@@ -174,7 +190,7 @@ $themes: (
                         10: #7cff48,
                         90: #67d05b
                 ),
-                warm: (
+                warn: (
                         10: #ffda48,
                         90: #8f8333
                 )

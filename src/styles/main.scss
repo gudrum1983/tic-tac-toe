@@ -1,11 +1,11 @@
-//@import "core/reset";
+@use "core/normalize";
 //@import "core/functions";
 //@import "core/mixins";
-@import "core/variables";
+//@import "core/variables";
 
-@import "tokens/palettes";
-@import "tokens/semantic";
-@import "tokens/themes";
+@use "tokens/palettes";
+@use "tokens/semantic";
+@use "tokens/themes";
 
 //@import "components/button";
 //@import "components/card";

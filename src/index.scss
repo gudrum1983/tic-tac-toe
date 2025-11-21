@@ -2,11 +2,20 @@
   box-sizing: border-box;
 }
 
+#root {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
   background-color: var(--color-bg);
+
+ // min-height: 100vh;
 }
 
 .App-header {
@@ -15,7 +24,15 @@ body {
   display: flex;
   gap: 10px;
   justify-content: end;
-  font-size: calc(10px + 2vmin);
+}
+
+.App-footer {
+  background-color: var(--color-bg-secondary);
+  padding: 20px;
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: end;
 }
 
 .App-header-bt {
@@ -64,9 +81,4 @@ ul {
   box-sizing: border-box;
 }
 
-body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
-}
 

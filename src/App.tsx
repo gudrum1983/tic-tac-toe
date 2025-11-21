@@ -35,8 +35,9 @@ export default function App() {
 
 
   return(
-    <>
+    <div className="App">
       <header className="App-header">
+        <h1> dfgsdfgsdf sdfbgsdf </h1>
         <button className={"App-header-bt"} onClick={changeThemeLight}>Светлая тема</button>
         <button className={"App-header-bt"} onClick={changeThemeDark}>Темная тема</button>
         <button className={"App-header-bt"} onClick={changeThemeCold}>Холодная тема</button>
@@ -47,7 +48,12 @@ export default function App() {
 
       <Game />
 
-    </>
+      <footer className="App-footer">
+        <h1 className={'test'}> dfgsdfgsdf sdfbgsdf </h1>
+
+        {/*https://www.youtube.com/watch?v=A4Y5VwXGG9g&t=436s*/}
+      </footer>
+    </div>
 
   )
 
