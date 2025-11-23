@@ -1,2 +1,3 @@
-export { default as Square } from './Square';
-export { default as Board } from './Board';
+export * from './Board';
+export * from './Footer';
+export * from './Header';

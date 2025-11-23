@@ -1,17 +1,13 @@
-import { cn as bem } from '@bem-react/classname';
-import './style.css';
+import styles from './Board.module.scss';
 import { calculateWinner } from '../../utils/utils.ts';
-import Square from '../Square';
 
-type BoardProps = {
+export type BoardProps = {
   xIsNext: boolean,
   squares: Array<string | null>,
   onPlay: (squares: Array<string | null>) => void
 };
 
-function Board({ xIsNext, squares, onPlay }: BoardProps) {
-
-  const cn = bem('Board');
+export function Board({ xIsNext, squares, onPlay }: BoardProps) {
 
   function handleClick(index: number) {
 
@@ -23,14 +19,24 @@ function Board({ xIsNext, squares, onPlay }: BoardProps) {
     onPlay(nextSquares);
   }
 
+  const Square = ({ value, onSquareClick }: {
+    disabled: boolean,
+    highlighted: boolean,
+    value: string | null,
+    onSquareClick: () => void
+  }) => <button className={styles.Board_Square} onClick={onSquareClick}>{value}</button>;
+
+
   const winner: {winner: string, line: [number, number, number]} | null = calculateWinner(squares);
 
   const winnerLine = winner?.line ?? null;
 
   return (
-    <div className={cn()}>
+    <div className={styles.Board}>
 
-      <div className={cn('Row')}>
+      <div className={styles.Board_Status}>CNFNECVBGH</div>
+
+      <div className={styles.Board_Row}>
         {[0, 1, 2].map((index) => (
           <Square key={index}
                   value={squares[index]}
@@ -39,16 +45,16 @@ function Board({ xIsNext, squares, onPlay }: BoardProps) {
                   disabled={!winner} />
         ))}
       </div>
-      <div className={cn('Row')}>
+      <div className={styles.Board_Row}>
         {[3, 4, 5].map((index) => (
           <Square key={index}
                   value={squares[index]}
                   onSquareClick={() => handleClick(index)}
                   highlighted={winnerLine?.includes(index) ?? false}
-                  disabled={!winner}/>
+                  disabled={!winner} />
         ))}
       </div>
-      <div className={cn('Row')}>
+      <div className={styles.Board_Row}>
         {[6, 7, 8].map((index) => (
           <Square key={index}
                   value={squares[index]}
@@ -60,5 +66,3 @@ function Board({ xIsNext, squares, onPlay }: BoardProps) {
     </div>);
 
 }
-
-export default Board;

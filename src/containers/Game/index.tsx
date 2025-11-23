@@ -1,5 +1,4 @@
-import { cn as bem } from '@bem-react/classname';
-import './style.css';
+import styles from './styles.module.scss';
 import { Board } from '../../components';
 import { useState } from 'react';
 import { calculateWinner } from '../../utils/utils.ts';
@@ -7,8 +6,6 @@ import { calculateWinner } from '../../utils/utils.ts';
 const initialSquares: Array<null> = Array(9).fill(null);
 
 function Game() {
-  const cn = bem('Game');
-
   const [history, setHistory] = useState<Array<Array<string | null>>>([initialSquares]);
   const [currentMove, setCurrentMove] = useState<number>(0);
   const currentSquares = history[currentMove];
@@ -55,15 +52,12 @@ function Game() {
   });
 
   return (
-    <div className={cn()}>
-
-
-
-      <div className={cn('Board')}>
-        <div className={cn('Status')}>{status}</div>
+    <div className={styles.Game}>
+      <div className={styles.Game_Board}>
+        <div className={styles.Game_Status}>{status}</div>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
-      <div className={cn('Info')}>
+      <div className={styles.Game_Info}>
         <ol>{steps}</ol>
       </div>
     </div>

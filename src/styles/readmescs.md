@@ -65,7 +65,7 @@ src/
       _palettes.scss
       _semantic.scss
       _themes.scss
-    main.scss          // подключается один раз в index.tsx
+    main.scss          // подключается один раз в Board.tsx
 
   components/
     Button/

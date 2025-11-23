@@ -1,0 +1,49 @@
+.Board {
+  &_Row:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+
+  &_Status {
+    margin-bottom: 80px;
+  }
+
+
+}
+
+.Board_Square {
+  background: #fff;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.Board_Square:hover {
+  background: rgba(0, 255, 255, 0.10);
+}
+
+.Board_Square_filled:hover {
+  background: #fff;
+}
+
+.Board_Square_highlighted {
+  background: rgb(220, 132, 240);
+}
+
+
+/*
+.Board_Row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.Board_Status {
+  margin-bottom: 10px;
+}*/

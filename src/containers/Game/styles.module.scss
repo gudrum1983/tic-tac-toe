@@ -1,8 +1,13 @@
 .Game {
   display: flex;
   flex-direction: row;
+
+  &_Status {
+    margin-bottom: 80px;
+  }
+
 }
 
-.Game-Info {
+.Game_Info {
   margin-left: 20px;
 }

@@ -1,60 +1,32 @@
 import { Game } from './containers';
 import { useEffect } from 'react';
-
+//если импортировать как модули то будет добавлен постфикс
+import styles from './styles.module.scss';
+import { Footer, Header } from './components';
+import { PageLayout } from './layout/PageLayout';
 //Для пропсов в React принято использовать "onSomething" для событий и
 // "handleSomething" для определений функций, обрабатывающих эти события.
 
 export default function App() {
 
+  // const themeNames: ['light', 'dark', 'cold', 'warm'] = ['light', 'dark', 'cold', 'warm'];
+
   useEffect(() => {
     document.body.classList.add('theme-light');
   }, []);
 
+  const changeTheme = (themeName: 'dark' | 'light' | 'cold' | 'warm') => {
+    console.log('theme-' + themeName);
+    document.body.className = 'theme-' + themeName;
+  };
 
-  const changeThemeDark = () => {
-    console.log('dark');
-    document.body.className = 'theme-dark';
-  }
-
-  const changeThemeLight = () => {
-    console.log('light');
-    document.body.className = 'theme-light';
-  }
-
-
-  const changeThemeCold = () => {
-    console.log('cold');
-    document.body.className = 'theme-cold';
-  }
-
-  const changeThemeWarm = () => {
-    console.log('warm');
-    document.body.className = 'theme-warm';
-  }
-
-
-
-  return(
-    <div className="App">
-      <header className="App-header">
-        <h1> dfgsdfgsdf sdfbgsdf </h1>
-        <button className={"App-header-bt"} onClick={changeThemeLight}>Светлая тема</button>
-        <button className={"App-header-bt"} onClick={changeThemeDark}>Темная тема</button>
-        <button className={"App-header-bt"} onClick={changeThemeCold}>Холодная тема</button>
-        <button className={"App-header-bt"} onClick={changeThemeWarm}>Теплая тема</button>
-
-
-      </header>
-
-      <Game />
-
-      <footer className="App-footer">
-        <h1 className={'test'}> dfgsdfgsdf sdfbgsdf </h1>
-
-        {/*https://www.youtube.com/watch?v=A4Y5VwXGG9g&t=436s*/}
-      </footer>
+  return (
+    <div className={styles.App}>
+      <PageLayout header={<Header onChangeTheme={changeTheme} />}
+                  footer={<Footer text={'Мини игра на React + Vite + TS, Scss + токен дизайн'} />}
+                  children={<Game />} />
     </div>
 
-  )
+  );
 
 }
