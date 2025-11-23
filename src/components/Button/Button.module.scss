@@ -1,0 +1,17 @@
+.Button {
+  text-align: left;
+  padding: 10px;
+  font-size: 26px;
+  background-color: var(--color-bg-button);
+  color: inherit;
+  border-radius: 10px;
+  height: fit-content;
+}
+
+.Button:hover {
+  background-color: var(--color-bg-button-hover);
+}
+
+.Button_width_full {
+  width: 100%;
+}

@@ -1,11 +1,19 @@
 .Header {
   background-color: var(--color-bg-secondary);
-  padding: 20px;
+}
+
+.Header_Content {
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--container-max);
+  padding-block: 20px;
   display: flex;
   gap: 10px;
   justify-content: end;
+  align-items: center;
 }
 
-.Header_Button {
-  background-color: var(--color-primary);
+.Header_Title {
+  flex: 1;
+  font-size: 60px;
 }

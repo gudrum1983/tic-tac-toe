@@ -14,7 +14,7 @@ export function Board({ xIsNext, squares, onPlay }: BoardProps) {
     if (squares[index] || calculateWinner(squares)) return;
 
     const nextSquares = [...squares];
-    nextSquares[index] = xIsNext ? 'O' : 'X';
+    nextSquares[index] = xIsNext ? 'X' : '0';
 
     onPlay(nextSquares);
   }
@@ -33,9 +33,6 @@ export function Board({ xIsNext, squares, onPlay }: BoardProps) {
 
   return (
     <div className={styles.Board}>
-
-      <div className={styles.Board_Status}>CNFNECVBGH</div>
-
       <div className={styles.Board_Row}>
         {[0, 1, 2].map((index) => (
           <Square key={index}

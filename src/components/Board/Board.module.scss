@@ -13,19 +13,20 @@
 }
 
 .Board_Square {
-  background: #fff;
+  background-color: var(--color-bg-button);
+  color: inherit;
   float: left;
-  font-size: 24px;
+  font-size: 150px;
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
+  line-height: 200px;
+  height: 200px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 200px;
 }
 
 .Board_Square:hover {
-  background: rgba(0, 255, 255, 0.10);
+  background: var(--color-bg-button-hover);
 }
 
 .Board_Square_filled:hover {
@@ -36,14 +37,15 @@
   background: rgb(220, 132, 240);
 }
 
+@media (max-width: 670px) {
+  .Board_Square {
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 100px;
+    height: 100px;
+    padding: 0;
+    text-align: center;
+    width: 100px;
+  }
 
-/*
-.Board_Row:after {
-  clear: both;
-  content: '';
-  display: table;
 }
-
-.Board_Status {
-  margin-bottom: 10px;
-}*/

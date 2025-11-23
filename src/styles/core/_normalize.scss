@@ -1,13 +1,8 @@
 @use '@a1rth/css-normalize';
 
-html {
-  scrollbar-gutter: auto;
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
+button:where([class]) {
+  color: inherit;
 }
-
 
 /*
 h1 {

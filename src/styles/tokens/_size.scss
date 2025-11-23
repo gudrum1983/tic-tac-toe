@@ -1,0 +1,22 @@
+// SCSS-переменные (сырьё)
+$container-max-sm: 640px;
+$container-max-md: 960px;
+$container-max-lg: 1200px;
+
+// CSS-переменные (то, чем пользуешься в модулях)
+// пример как использовать переменные
+:root {
+  --container-max: #{$container-max-lg};
+}
+
+@media (max-width: 1260px) {
+  :root {
+    --container-max: #{$container-max-md};
+  }
+}
+
+@media (max-width: 1020px) {
+  :root {
+    --container-max: #{$container-max-sm};
+  }
+}

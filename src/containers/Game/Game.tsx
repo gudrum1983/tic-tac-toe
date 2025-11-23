@@ -1,11 +1,12 @@
-import styles from './styles.module.scss';
+import styles from './Game.module.scss';
 import { Board } from '../../components';
 import { useState } from 'react';
 import { calculateWinner } from '../../utils/utils.ts';
+import { Button } from '../../components/Button';
 
 const initialSquares: Array<null> = Array(9).fill(null);
 
-function Game() {
+export function Game() {
   const [history, setHistory] = useState<Array<Array<string | null>>>([initialSquares]);
   const [currentMove, setCurrentMove] = useState<number>(0);
   const currentSquares = history[currentMove];
@@ -20,41 +21,44 @@ function Game() {
 
   function jumpTo(nextMove: number) {
     setCurrentMove(nextMove);
-
   }
 
   const winner: {winner: string, line: [number, number, number]} | null = calculateWinner(currentSquares);
-  const status = !winner && currentMove > 8 ? 'НИЧЬЯ' :  winner?.winner ? 'Winner: ' + winner.winner : 'Next player: ' + (xIsNext ? 'X' : 'O');
+ // const status = !winner && currentMove > 8 ? 'НИЧЬЯ' :  winner?.winner ? 'Winner: ' + winner.winner : 'Next player: ' + (xIsNext ? 'X' : 'O');
+
+  const status = !winner && currentMove > 8 ? 'НИЧЬЯ' :  winner?.winner ? 'Победитель - ' + winner.winner : 'Ход игрока - ' + (xIsNext ? 'X' : 'O');
+
 
   const steps = history.map((_squares, step) => {
-
-
     //todo refactor
     let description;
     if (step > 0) {
       if (currentMove === step) {
-        description = 'You are at move #' + step;
+        description = 'Текущий шаг #' + step; //'You are at move #' + step;
       } else {
-        description = 'Go to move #' + step;
+        description = 'Перейти на шаг #' + step; //'Go to move #' + step;
       }
 
     } else {
-      description = 'Go to game start';
+      description = 'Перейти к началу игры'; //'Go to game start'
     }
 
 
     return (
       <li key={step}>
-        <button onClick={() => jumpTo(step)}>{description}</button>
-      </li>
+
+          <Button onClick={() => jumpTo(step)} description={description} widthFull/>
+{/*          <button onClick={() => jumpTo(step)}>{description}</button>*/}
+        </li>
     );
 
   });
 
   return (
     <div className={styles.Game}>
+      <div className={styles.Game_Status}>Статус игры: {status}</div>
       <div className={styles.Game_Board}>
-        <div className={styles.Game_Status}>{status}</div>
+
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className={styles.Game_Info}>
@@ -63,5 +67,3 @@ function Game() {
     </div>
   );
 }
-
-export default Game;
