@@ -5,16 +5,19 @@ export type ButtonProps = {
   description?: string,
   onClick?: () => void,
   widthFull?: boolean,
-  icAccent?: boolean,
+  isAccent?: boolean,
+  textCenter?: boolean
 };
 
-export function Button({ description, onClick, widthFull, icAccent }: ButtonProps) {
+export function Button({ description, onClick, widthFull, isAccent, textCenter }: ButtonProps) {
 
   return (
     <button className={clsx(
       styles.Button,
       widthFull && styles.Button_width_full,
-      icAccent && styles.Button_accent
+      isAccent && styles.Button_accent,
+      textCenter && styles.Button_alignText_center,
+
     )} onClick={onClick}>{description}</button>
   );
 }
