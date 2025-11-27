@@ -1,33 +1,38 @@
 import styles from './Game.module.scss';
-import { Board } from '../../components';
-import { useState } from 'react';
+import { Board, History } from '../../components';
+import { useMemo, useState } from 'react';
 import { calculateWinner } from '../../utils/utils.ts';
 import { Button } from '../../components/Button';
-import clsx from 'clsx';
 
 const initialSquares: Array<null> = Array(9).fill(null);
 
+
+type HistoryItem = {step: number, value: Array<string | null>, currentPlayer?: string, coordinates?: Array<[number, number]> };
+
+const initialHistory: Array<HistoryItem> = [{step: 0, value: initialSquares}];
+
+
 export function Game() {
-  const [history, setHistory] = useState<Array<Array<string | null>>>([initialSquares]);
+  const [history, setHistory] = useState<Array<HistoryItem>>(initialHistory);
   const [currentMove, setCurrentMove] = useState<number>(0);
-  const currentSquares = history[currentMove];
+  const [isAscending, setIsAscending] = useState<boolean>(true);
+
+  const currentSquares = history.find((item) =>  item.step === currentMove )?.value ?? initialSquares;
+
+
   //xIsNext в true, если число, на которое вы меняете currentMove, чётное.
   const xIsNext = currentMove % 2 === 0;
 
   function handlePlay(nextSquares: Array<string | null>) {
-    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+    const nextHistory = [...history.slice(0, currentMove + 1), {step: currentMove + 1, value:nextSquares}];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
   }
 
-  function jumpTo(nextMove: number) {
-    setCurrentMove(nextMove);
-  }
-
 
   function handleReset () {
-    jumpTo(0);
-    setHistory([initialSquares]);
+    setCurrentMove(0);
+    setHistory(initialHistory);
   }
 
   const winner: {winner: string, line: [number, number, number]} | null = calculateWinner(currentSquares);
@@ -35,8 +40,13 @@ export function Game() {
 
   const status = !winner && currentMove > 8 ? 'НИЧЬЯ' : winner?.winner ? 'Победитель - ' + winner.winner : 'Ход игрока - ' + (xIsNext ? 'X' : 'O');
 
+  //const listHistory = isAscending ? history : history.toReversed()
 
-  const steps = history.map((_squares, step) => {
+  const sortedMoves = useMemo(() => {
+    return isAscending ? history : history.toReversed();
+  }, [history, isAscending]);
+
+/*  const steps = history.map((_squares, step) => {
     //todo refactor
     let description;
     if (step > 0) {
@@ -60,13 +70,13 @@ export function Game() {
       </li>
     );
 
-  });
+  });*/
 
   return (
     <div className={styles.Game}>
       <div className={styles.Game_Panel}>
         <div className={styles.Game_Status}> Статус игры: {status} </div>
-        <Button onClick={handleReset} description={'Начать заново'} icAccent/>
+        <Button onClick={handleReset} description={'Начать заново'} isAccent />
       </div>
 
       <div className={styles.Game_Board}>
@@ -74,7 +84,9 @@ export function Game() {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className={styles.Game_Info}>
-        <ol className={styles.Game_List}>{steps}</ol>
+        <Button description={isAscending ? 'Шаги по возрастанию' : 'Шаги по убыванию'} widthFull isAccent textCenter onClick={() => setIsAscending(!isAscending)}/>
+        <History history={sortedMoves} currentMove={currentMove} setCurrentMove={setCurrentMove}/>
+        {/*<ol className={styles.Game_List}>{steps}</ol>*/}
       </div>
     </div>
   );

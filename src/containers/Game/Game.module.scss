@@ -35,30 +35,11 @@
   }
 }
 
-.Game_Button_accent {
-color: var(--color-text-accent);
-  padding-inline-start: 10px;
-}
-
-.ListItem_accent::marker {
-  color: var(--color-text-accent);
-}
-
 .Game_Info {
   grid-area: steps;
   border-radius: 20px;
   background-color: var(--color-bg-secondary);
   padding: 10px;
-
-  ol {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 26px;
-    li {
-      min-height: 45px;
-    }
-  }
 
 }
 
