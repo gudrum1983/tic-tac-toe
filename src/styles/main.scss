@@ -1,0 +1,20 @@
+@use "core/normalize";
+@use "core/variables";
+
+@use "tokens/palettes";
+@use "tokens/semantic";
+@use "tokens/themes";
+@use "tokens/size";
+
+html {
+  scrollbar-gutter: auto;
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  background-color: var(--color-bg); // ← вот тут фон приложения
+  color: var(--color-text);
+}

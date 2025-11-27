@@ -1,0 +1,76 @@
+.Game {
+  width: 100%;
+  display: grid;
+  row-gap: 20px;
+  column-gap: 50px;
+  grid-template-columns: 1fr 300px;
+ // grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    "status status"
+    "board steps";
+
+  &_Panel {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    font-size: 30px ;
+    border-radius: 20px;
+    background-color: var(--color-bg-secondary);
+    grid-area: status;
+  }
+
+  &_Status {
+    flex: 1;
+    font-size: 30px ;
+  }
+
+  &_Board {
+    grid-area: board;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: var(--color-bg-secondary);
+     padding: 50px;
+  }
+}
+
+.Game_Button_accent {
+color: var(--color-text-accent);
+  padding-inline-start: 10px;
+}
+
+.ListItem_accent::marker {
+  color: var(--color-text-accent);
+}
+
+.Game_Info {
+  grid-area: steps;
+  border-radius: 20px;
+  background-color: var(--color-bg-secondary);
+  padding: 10px;
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 26px;
+    li {
+      min-height: 45px;
+    }
+  }
+
+}
+
+@media (max-width: 1020px) {
+.Game {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "status"
+    "board"
+    "steps";
+}
+  .Game_Board {
+    min-height: 330px;
+  }
+}

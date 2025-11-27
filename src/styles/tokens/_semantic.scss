@@ -1,0 +1,22 @@
+$semantic-tokens: (
+        bg: (palette: base, tone: 10),
+        bg-primary: (palette: base, tone: 50),
+        bg-secondary: (palette: base, tone: 30),
+        bg-button: (palette: base, tone: 50),
+        bg-button-hover: (palette: base, tone: 40),
+        bg-button-active: (palette: base, tone: 60),
+        accent: (palette: accent, tone: 50),
+        accent-hover: (palette: accent, tone: 10),
+        accent-active: (palette: accent, tone: 90),
+
+        primary: (palette: primary, tone: 10),
+        primary-hover: (palette: primary, tone: 90),
+
+
+        border: (palette: base, tone: 80),
+        border-accent: (palette: accent, tone: 90),
+
+        text: (palette: base, tone: 90),
+        text-accent: (palette: accent, tone: 90),
+
+);

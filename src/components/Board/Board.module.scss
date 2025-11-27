@@ -1,0 +1,73 @@
+.Board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 5px;
+  background-color: var(--color-text);
+
+  &_Status {
+    margin-bottom: 80px;
+  }
+}
+
+.Board_Square {
+  position: relative;
+  background-color: var(--color-bg-secondary);
+  color: inherit;
+  float: left;
+  font-size: 150px;
+  font-weight: bold;
+  line-height: 200px;
+  height: 200px;
+  padding: 0;
+  text-align: center;
+  width: 200px;
+}
+
+.Board_Square:disabled, .Board_Square:disabled:hover {
+  ///background-color: var(--color-bg-button);
+}
+
+/* Подсветка-символ при ховере */
+.Board_Square::after {
+  content: attr(data-preview); // берём символ из атрибута
+  position: absolute;
+  inset: 0; // растянуть на всю кнопку
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  // pointer-events: none;
+  //font-size: 48px;
+  transition: opacity 0.2s ease;
+  /* можно цвет/прозрачность подать как эффект подсветки */
+}
+
+.Board_Square:hover::after {
+  opacity: 0.5;
+}
+
+.Board_Square_deactive:hover {
+  cursor: default;
+}
+
+.Board_Square_deactive:hover::after {
+  opacity: 0;
+}
+
+
+.Board_Square_highlighted, .Board_Square_highlighted:hover {
+  background: var(--color-accent);
+}
+
+@media (max-width: 670px) {
+  .Board_Square {
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 100px;
+    height: 100px;
+    padding: 0;
+    text-align: center;
+    width: 100px;
+  }
+}
