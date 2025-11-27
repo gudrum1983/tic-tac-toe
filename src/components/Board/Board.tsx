@@ -1,5 +1,6 @@
 import styles from './Board.module.scss';
 import { calculateWinner } from '../../utils/utils.ts';
+import clsx from 'clsx';
 
 export type BoardProps = {
   xIsNext: boolean,
@@ -9,22 +10,31 @@ export type BoardProps = {
 
 export function Board({ xIsNext, squares, onPlay }: BoardProps) {
 
+  const currentPlayer = xIsNext ? 'X' : 'O';
+
   function handleClick(index: number) {
 
     if (squares[index] || calculateWinner(squares)) return;
 
     const nextSquares = [...squares];
-    nextSquares[index] = xIsNext ? 'X' : '0';
+    nextSquares[index] = currentPlayer;
 
     onPlay(nextSquares);
   }
 
-  const Square = ({ value, onSquareClick }: {
+  const Square = ({ value, onSquareClick, highlighted, disabled }: {
     disabled: boolean,
     highlighted: boolean,
     value: string | null,
     onSquareClick: () => void
-  }) => <button className={styles.Board_Square} onClick={onSquareClick}>{value}</button>;
+  }) => <button
+    className={clsx([
+      styles.Board_Square,
+      (disabled || Boolean(value)) && styles.Board_Square_deactive,
+      highlighted && styles.Board_Square_highlighted,
+    ])}
+    data-preview={value ? '' : currentPlayer}  // только если клетка пустая
+    onClick={onSquareClick}>{value}</button>;
 
 
   const winner: {winner: string, line: [number, number, number]} | null = calculateWinner(squares);
@@ -33,33 +43,16 @@ export function Board({ xIsNext, squares, onPlay }: BoardProps) {
 
   return (
     <div className={styles.Board}>
-      <div className={styles.Board_Row}>
-        {[0, 1, 2].map((index) => (
+
+        {[0, 1, 2, 3, 4 , 5 , 6 , 7 , 8].map((index) => (
           <Square key={index}
                   value={squares[index]}
                   onSquareClick={() => handleClick(index)}
                   highlighted={winnerLine?.includes(index) ?? false}
-                  disabled={!winner} />
+                  disabled={Boolean(winner)} />
         ))}
-      </div>
-      <div className={styles.Board_Row}>
-        {[3, 4, 5].map((index) => (
-          <Square key={index}
-                  value={squares[index]}
-                  onSquareClick={() => handleClick(index)}
-                  highlighted={winnerLine?.includes(index) ?? false}
-                  disabled={!winner} />
-        ))}
-      </div>
-      <div className={styles.Board_Row}>
-        {[6, 7, 8].map((index) => (
-          <Square key={index}
-                  value={squares[index]}
-                  onSquareClick={() => handleClick(index)}
-                  highlighted={winnerLine?.includes(index) ?? false}
-                  disabled={!winner} />
-        ))}
-      </div>
+
+
     </div>);
 
 }

@@ -3,17 +3,10 @@
 │   ├── _palettes.scss         // сыровые палитры (primary-10…90, neutral-10…90)
 │   ├── _semantic.scss         // семантические токены (color-bg, color-text, border...)
 │   └── _themes.scss           // карты тем + генерация .theme-light, .theme-dark и т.д.
-
 */
 
 $themes: (
         light: (
-                'white': (
-                        50: #ffffff
-                ),
-                'black':  (
-                        50: #000000
-                ),
                 base: (
                         10: #F5F5F5,
                         20: #EBEBEB,
@@ -34,33 +27,16 @@ $themes: (
                         90: #00bb8f
                 ),
                 accent: (
-                        10: #d7ff48,
+                        10: #bce049,
+                        50: #99b93d,
                         90: #8c8f33
                 ),
                 neutral: (
                         10: #ffffff,
                         90: #000000
                 ),
-                error: (
-                        10: #FF4848,
-                        90: #8F3333
-                ),
-                success: (
-                        10: #7cff48,
-                        90: #67d05b
-                ),
-                warn: (
-                        10: #ffda48,
-                        90: #8f8333
-                )
         ),
         dark: (
-                'white': (
-                        50: #ffffff
-                ),
-                'black':  (
-                        50: #000000
-                ),
                 base: (
                         10: #191919,
                         20: #333333,
@@ -81,118 +57,13 @@ $themes: (
                         90: #00bb8f
                 ),
                 accent: (
-                        10: #d7ff48,
-                        90: #8c8f33
+                        90: #bce049,
+                        50: #99b93d,
+                        10: #8c8f33
                 ),
                 neutral: (
                         10: #ffffff,
                         90: #000000
                 ),
-                error: (
-                        10: #FF4848,
-                        90: #8F3333
-                ),
-                success: (
-                        10: #7cff48,
-                        90: #67d05b
-                ),
-                warn: (
-                        10: #ffda48,
-                        90: #8f8333
-                )
         ),
-        /*cold: (
-                'white': (
-                        50: #ffffff
-                ),
-                'black':  (
-                        50: #000000
-                ),
-                base: (
-                        10: #EBF1F5,
-                        20: #E2E8EB,
-                        30: #B0B5B8,
-                        40: #969EA3,
-                        50: #838B8F,
-                        60: #71777A,
-                        70: #54595C,
-                        80: #383C3D,
-                        90: #1C1E1F,
-                ),
-                primary: (
-                        10: #b700ff,
-                        90: #9200bb
-                ),
-                secondary: (
-                        10: #ff9100,
-                        90: #bb7000
-                ),
-                accent: (
-                        10: #d7ff48,
-                        90: #8c8f33
-                ),
-                neutral: (
-                        10: #ffffff,
-                        90: #000000
-                ),
-                error: (
-                        10: #FF4848,
-                        90: #8F3333
-                ),
-                success: (
-                        10: #7cff48,
-                        90: #67d05b
-                ),
-                warn: (
-                        10: #ffda48,
-                        90: #8f8333
-                )
-        ),
-        warm: (
-                'white': (
-                        50: #ffffff
-                ),
-                'black':  (
-                        50: #000000
-                ),
-                base: (
-                        10: #F1EBF5,
-                        20: #E8E2EB,
-                        30: #B5B0B8,
-                        40: #9E96A3,
-                        50: #8B838F,
-                        60: #77717A,
-                        70: #59545C,
-                        80: #3C383D,
-                        90: #1E1C1F,
-                ),
-                primary: (
-                        10: #b700ff,
-                        90: #9200bb
-                ),
-                secondary: (
-                        10: #ff9100,
-                        90: #bb7000
-                ),
-                accent: (
-                        10: #d7ff48,
-                        90: #8c8f33
-                ),
-                neutral: (
-                        10: #ffffff,
-                        90: #000000
-                ),
-                error: (
-                        10: #FF4848,
-                        90: #8F3333
-                ),
-                success: (
-                        10: #7cff48,
-                        90: #67d05b
-                ),
-                warn: (
-                        10: #ffda48,
-                        90: #8f8333
-                )
-        ),*/
 );

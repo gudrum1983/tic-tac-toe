@@ -1,8 +1,10 @@
 .Header {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg-primary);
+  padding-inline: 20px;
 }
 
 .Header_Content {
+  flex-wrap: wrap;
   margin: 0 auto;
   width: 100%;
   max-width: var(--container-max);
@@ -16,4 +18,10 @@
 .Header_Title {
   flex: 1;
   font-size: 60px;
+}
+
+.Header_Actions {
+  display: flex;
+  gap: 10px;
+
 }

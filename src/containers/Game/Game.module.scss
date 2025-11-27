@@ -9,12 +9,19 @@
     "status status"
     "board steps";
 
-  &_Status {
-    grid-area: status;
+  &_Panel {
+    display: flex;
+    gap: 10px;
     padding: 10px;
     font-size: 30px ;
     border-radius: 20px;
     background-color: var(--color-bg-secondary);
+    grid-area: status;
+  }
+
+  &_Status {
+    flex: 1;
+    font-size: 30px ;
   }
 
   &_Board {
@@ -22,11 +29,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 770px;
     border-radius: 20px;
     background-color: var(--color-bg-secondary);
+     padding: 50px;
+  }
+}
+
+.Game_Button {
+color: var(--color-accent-active);
+  padding-inline-start: 10px;
+  &::marker {
+    color: var(--color-accent-active);
   }
 
+}
+
+.ListItem_accent::marker {
+  color: var(--color-accent-active);
 }
 
 .Game_Info {
@@ -40,6 +59,9 @@
     flex-direction: column;
     gap: 10px;
     font-size: 26px;
+    li {
+      min-height: 45px;
+    }
   }
 
 }

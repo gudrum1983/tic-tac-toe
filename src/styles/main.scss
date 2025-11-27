@@ -1,16 +1,10 @@
 @use "core/normalize";
-//@import "core/functions";
-//@import "core/mixins";
 @use "core/variables";
 
 @use "tokens/palettes";
 @use "tokens/semantic";
 @use "tokens/themes";
 @use "tokens/size";
-
-//@import "components/button";
-//@import "components/card";
-//@import "components/input";
 
 html {
   scrollbar-gutter: auto;
@@ -23,7 +17,4 @@ html {
 body {
   background-color: var(--color-bg); // ← вот тут фон приложения
   color: var(--color-text);
-
-  //color: var(--text-primary);
- // font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
