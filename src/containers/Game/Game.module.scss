@@ -35,17 +35,13 @@
   }
 }
 
-.Game_Button {
-color: var(--color-accent-active);
+.Game_Button_accent {
+color: var(--color-text-accent);
   padding-inline-start: 10px;
-  &::marker {
-    color: var(--color-accent-active);
-  }
-
 }
 
 .ListItem_accent::marker {
-  color: var(--color-accent-active);
+  color: var(--color-text-accent);
 }
 
 .Game_Info {

@@ -54,8 +54,8 @@ export function Game() {
     return (
       <li key={step} className={clsx(styles.Game_ListItem, (step === currentMove) && styles.ListItem_accent )}>
         {(step === currentMove)
-          ? <div className={styles.Game_Button}>{(step !== 0) ? `Вы на шаге № ${step}` : 'Вы в начале игры'}</div>
-          : <Button onClick={() => jumpTo(step)} description={description} widthFull icAccent={step === currentMove}/>
+          ? <div className={styles.Game_Button_accent}>{(step !== 0) ? `Вы на шаге № ${step}` : 'Вы в начале игры'}</div>
+          : <Button onClick={() => jumpTo(step)} description={description} widthFull/>
         }
       </li>
     );
