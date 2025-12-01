@@ -37,6 +37,9 @@
 
 .Game_Info {
   grid-area: steps;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   border-radius: 20px;
   background-color: var(--color-bg-secondary);
   padding: 10px;
