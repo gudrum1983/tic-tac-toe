@@ -1,5 +1,6 @@
 .History {
-  ol {
+  .Game_List {
+    list-style:  none;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -9,6 +10,8 @@
     }
   }
 }
+
+
 
 .Game_Button_accent {
   color: var(--color-text-accent);

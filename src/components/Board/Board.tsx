@@ -5,7 +5,7 @@ import clsx from 'clsx';
 export type BoardProps = {
   xIsNext: boolean,
   squares: Array<string | null>,
-  onPlay: (squares: Array<string | null>) => void
+  onPlay: (index: number) => void
 };
 
 export function Board({ xIsNext, squares, onPlay }: BoardProps) {
@@ -14,12 +14,16 @@ export function Board({ xIsNext, squares, onPlay }: BoardProps) {
 
   function handleClick(index: number) {
 
+/*
     if (squares[index] || calculateWinner(squares)) return;
 
     const nextSquares = [...squares];
     nextSquares[index] = currentPlayer;
 
-    onPlay(nextSquares);
+    onPlay(nextSquares, index);
+*/
+
+    onPlay(index);
   }
 
   const Square = ({ value, onSquareClick, highlighted, disabled }: {
@@ -44,9 +48,9 @@ export function Board({ xIsNext, squares, onPlay }: BoardProps) {
   return (
     <div className={styles.Board}>
 
-        {[0, 1, 2, 3, 4 , 5 , 6 , 7 , 8].map((index) => (
+        {squares.map((square, index) => (
           <Square key={index}
-                  value={squares[index]}
+                  value={square}
                   onSquareClick={() => handleClick(index)}
                   highlighted={winnerLine?.includes(index) ?? false}
                   disabled={Boolean(winner)} />
