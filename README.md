@@ -75,3 +75,6 @@ export default defineConfig([
   },
 ])
 ```
+
+
+Пример полиморфного реакт компонента - Typography.tsx

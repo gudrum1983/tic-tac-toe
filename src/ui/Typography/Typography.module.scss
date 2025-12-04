@@ -1,0 +1,35 @@
+.Typography {
+
+  &_size_xs {
+    font-size: 20px;
+  }
+
+  &_size_s {
+    font-size: 30px;
+  }
+
+  &_size_m {
+    font-size: 40px;
+  }
+
+  &_size_l {
+    font-size: 50px;
+  }
+
+  &_size_xl {
+    font-size: 60px;
+  }
+
+  &_color_primary {
+    color: var(--color-primary);
+  }
+
+  &_color_accent {
+    color: var(--color-accent);
+  }
+
+  &_color_secondary {
+    color: var(--color-secondary);
+  }
+
+}

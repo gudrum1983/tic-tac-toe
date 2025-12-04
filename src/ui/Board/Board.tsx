@@ -1,6 +1,7 @@
 import styles from './Board.module.scss';
-import { calculateWinner } from '../../utils/utils.ts';
+import { calculateWinner } from '@/utils';
 import clsx from 'clsx';
+import { Paper } from '@/ui';
 
 export type BoardProps = {
   xIsNext: boolean,
@@ -46,6 +47,8 @@ export function Board({ xIsNext, squares, onPlay }: BoardProps) {
   const winnerLine = winner?.line ?? null;
 
   return (
+    <>
+    <Paper padding={'md'}>dfgdfgsdfg</Paper>
     <div className={styles.Board}>
 
         {squares.map((square, index) => (
@@ -57,6 +60,9 @@ export function Board({ xIsNext, squares, onPlay }: BoardProps) {
         ))}
 
 
-    </div>);
+    </div>
+
+
+    </>);
 
 }

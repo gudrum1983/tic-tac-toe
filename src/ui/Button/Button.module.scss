@@ -1,0 +1,42 @@
+.Button {
+  --btn-color-background: var(--color-button-bg);
+  --btn-color-background-hover: var(--color-button-bg-hover);
+  --btn-color-background-active: var(--color-button-bg-active);
+  --btn-width: 'fit-content';
+  --btn-text-align: left;
+
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  background-color: var(--btn-color-background);
+  border: 2px solid var(--color-button-border);
+  color: var(--color-button-text);
+  width: var(--btn-width);
+  text-align: var(--btn-text-align);
+
+  font-size: 26px;
+  line-height: 1;
+  height: fit-content;
+
+  &:hover {
+    background-color: var(--btn-color-background-hover);
+  }
+
+  &:active {
+    background-color: var(--btn-color-background-active);
+  }
+}
+
+
+.Button_width_full {
+  --btn-width: 100%;
+}
+
+.Button_accent {
+  --btn-color-background: var(--color-button-bg-accent);
+  --btn-color-background-hover: var(--color-button-bg-accent-hover);
+  --btn-color-background-active: var(--color-button-bg-accent-active);
+}
+
+.Button_alignText_center {
+  --btn-text-align: center;
+}

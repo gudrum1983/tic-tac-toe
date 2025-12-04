@@ -16,6 +16,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/types": ["./src/shared/types"],
+      "@/utils": ["./src/shared/utils"]
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

@@ -1,6 +1,6 @@
 import styles from './History.module.scss';
 import clsx from 'clsx';
-import { Button } from '../Button';
+import { Button } from '@/ui';
 type HistoryItem = {step: number, value: Array<string | null>, currentPlayer?: string, coordinates?: [number, number] };
 export type HistoryProps = {
   history: Array<HistoryItem>;

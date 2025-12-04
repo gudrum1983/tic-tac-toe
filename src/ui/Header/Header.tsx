@@ -1,5 +1,5 @@
 import styles from './Header.module.scss';
-import { Button } from '../Button';
+import { Button } from '@/ui';
 
 export type HeaderProps = {
   onChangeTheme: (themeName: 'dark' | 'light') => void;

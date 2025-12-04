@@ -1,8 +1,9 @@
 import styles from './Game.module.scss';
-import { Board, History } from '../../components';
 import { useMemo, useState } from 'react';
-import { calculateWinner } from '../../utils/utils.ts';
-import { Button } from '../../components/Button';
+import { Board, History, Button } from '@/ui';
+import { calculateWinner } from '@/shared/utils/calculateWinner.ts';
+import type { Player } from '@/types';
+
 
 const initialSquares: Array<null> = Array(9).fill(null);
 
@@ -26,9 +27,9 @@ export function Game() {
 
 
   //xIsNext в true, если число, на которое вы меняете currentMove, чётное.
-  const xIsNext = currentMove % 2 === 0;
+  const xIsNext: boolean = currentMove % 2 === 0;
 
-  const currentPlayer = xIsNext ? 'X' : 'O';
+  const currentPlayer: Player = xIsNext ? 'X' : 'O';
 
   function handlePlay(index: number) {
 
@@ -107,7 +108,6 @@ export function Game() {
         <Button description={isAscending ? 'Шаги по возрастанию' : 'Шаги по убыванию'} widthFull isAccent textCenter
                 onClick={() => setIsAscending(!isAscending)} />
         <History history={sortedMoves} currentMove={currentMove} setCurrentMove={setCurrentMove} />
-        {/*<ol className={styles.Game_List}>{steps}</ol>*/}
       </div>
     </div>
   );

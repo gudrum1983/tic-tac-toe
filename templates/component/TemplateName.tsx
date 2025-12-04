@@ -1,7 +1,8 @@
 import styles from './TemplateName.module.scss';
+import type { ReactNode } from 'react';
 
 export type TemplateNameProps = {
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 export function TemplateName({ children }: TemplateNameProps) {

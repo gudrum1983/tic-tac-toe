@@ -1,8 +1,8 @@
-import { Game } from '../containers';
+import { Game } from '@/features';
 import { useEffect, useState } from 'react';
 //если импортировать как модули то будет добавлен постфикс
-import { Footer, Header } from '../components';
-import { PageLayout } from '../layout/PageLayout';
+import { Footer, Header } from '@/ui';
+import { PageLayout } from '@/layout';
 //Для пропсов в React принято использовать "onSomething" для событий и
 // "handleSomething" для определений функций, обрабатывающих эти события.
 

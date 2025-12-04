@@ -5,3 +5,13 @@
 │   └── _reset.scss            // normalize/reset
 
 */
+
+@use '../tokens/space' as space;
+@use '../tokens/radius' as radius;
+@use '../tokens/themes'; // внутри уже цвета и т.п.
+
+:root {
+  @include space.space-vars();
+  @include radius.radius-vars();
+  // если нужно — типографика, z-index и прочие токены
+}
