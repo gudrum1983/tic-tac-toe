@@ -1,1 +1,1 @@
-export { calculateWinner } from './calculateWinner.ts';
+export * from './calculateWinner';

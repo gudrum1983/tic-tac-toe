@@ -17,9 +17,7 @@
     "jsx": "react-jsx",
 
     "paths": {
-      "@/*": ["./src/*"],
-      "@/types": ["./src/shared/types"],
-      "@/utils": ["./src/shared/utils"]
+      "@/*": ["./src/*"]
     },
 
     /* Linting */

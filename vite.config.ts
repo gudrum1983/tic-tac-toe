@@ -7,6 +7,8 @@ export default defineConfig({
   plugins: [react()],
   base: "/tic-tac-toe/",
   resolve: {
-    alias: { '@': path.resolve(__dirname, './src') }
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    },
   }
 })

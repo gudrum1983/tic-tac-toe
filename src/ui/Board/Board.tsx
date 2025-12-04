@@ -1,7 +1,7 @@
 import styles from './Board.module.scss';
-import { calculateWinner } from '@/utils';
 import clsx from 'clsx';
 import { Paper } from '@/ui';
+import { calculateWinner, type Player } from '@/shared';
 
 export type BoardProps = {
   xIsNext: boolean,
@@ -11,7 +11,7 @@ export type BoardProps = {
 
 export function Board({ xIsNext, squares, onPlay }: BoardProps) {
 
-  const currentPlayer = xIsNext ? 'X' : 'O';
+  const currentPlayer: Player = xIsNext ? 'X' : 'O';
 
   function handleClick(index: number) {
 
