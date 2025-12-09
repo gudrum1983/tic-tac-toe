@@ -1,27 +1,21 @@
 .Header {
+  width: var(--size-full);
   background-color: var(--color-bg-primary);
-  padding-inline: 20px;
+  padding: var(--space-sm);
 }
 
 .Header_Content {
+  width: var(--size-full);
+  max-width: var(--container-max);
+  display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  width: 100%;
-  max-width: var(--container-max);
-  padding-block: 20px;
-  display: flex;
-  gap: 10px;
-  justify-content: end;
+  gap: var(--space-sm);
   align-items: center;
-}
-
-.Header_Title {
-  flex: 1;
-  font-size: 60px;
+  justify-content: space-between;
 }
 
 .Header_Actions {
   display: flex;
-  gap: 10px;
-
+  gap: var(--space-sm);
 }

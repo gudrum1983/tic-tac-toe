@@ -1,6 +1,8 @@
 import styles from './Button.module.scss';
 import clsx from 'clsx';
 
+//todo: разобраться с переменными size и font в scss
+
 export type ButtonProps = {
   description?: string,
   onClick?: () => void,
@@ -17,7 +19,6 @@ export function Button({ description, onClick, widthFull, isAccent, textCenter }
       widthFull && styles.Button_width_full,
       isAccent && styles.Button_accent,
       textCenter && styles.Button_alignText_center,
-
     )} onClick={onClick}>{description}</button>
   );
 }

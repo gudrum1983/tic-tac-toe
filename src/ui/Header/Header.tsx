@@ -1,20 +1,27 @@
 import styles from './Header.module.scss';
-import { Button } from '@/ui';
+import { Button, Typography } from '@ui';
+import type { ThemeName, Themes } from '@types';
 
 export type HeaderProps = {
-  onChangeTheme: (themeName: 'dark' | 'light') => void;
-  isLightTheme: boolean;
+  themes: Themes;
+  currentTheme: ThemeName;
+  onThemeChange: (theme: ThemeName) => void;
+  title: string;
 };
 
-export function Header({ onChangeTheme, isLightTheme }: HeaderProps) {
+export function Header({ onThemeChange, currentTheme, themes, title }: HeaderProps) {
 
   return (
     <div className={styles.Header}>
       <div className={styles.Header_Content}>
-        <h1 className={styles.Header_Title}> Крестики-нолики </h1>
+        <Typography as={'h1'} variant={'secondary'} size={'xl'}>{title}</Typography>
         <div className={styles.Header_Actions}>
-          <Button onClick={() => onChangeTheme('light')} description={'Светлая тема'} isAccent={isLightTheme}/>
-          <Button onClick={() => onChangeTheme('dark')} description={'Темная тема'} isAccent={!isLightTheme}/>
+          {themes.map((item, index) => {
+            return <Button key={item.name + index}
+                           onClick={() => onThemeChange(item.name)}
+                           description={item.label}
+                           isAccent={currentTheme === item.name} />;
+          })}
         </div>
       </div>
     </div>);

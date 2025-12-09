@@ -4,9 +4,9 @@
 @use "tokens/palettes";
 @use "tokens/semantic";
 @use "tokens/themes";
-@use "tokens/size";
-@use "tokens/space";
-@use "tokens/radius";
+@forward "tokens/size";
+@forward "tokens/space";
+@forward "tokens/radius";
 
 html {
   scrollbar-gutter: auto;

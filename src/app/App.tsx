@@ -1,29 +1,27 @@
-import { Game } from '@/features';
+import { Game } from '@features';
 import { useEffect, useState } from 'react';
-//если импортировать как модули то будет добавлен постфикс
-import { Footer, Header } from '@/ui';
-import { PageLayout } from '@/layout';
-//Для пропсов в React принято использовать "onSomething" для событий и
-// "handleSomething" для определений функций, обрабатывающих эти события.
+import { Footer, Header, PageLayout } from '@ui';
+import type { ThemeName } from '@types';
+import { THEMES } from '@utils';
 
 export default function App() {
 
-  const [isLightTheme, setIsLightTheme] = useState(true);
+  const [theme, setTheme] = useState<ThemeName>(THEMES[0].name);
 
   useEffect(() => {
-    document.body.classList.add('theme-light');
-  }, []);
+    document.body.className = theme;
+  }, [theme]);
 
-  const changeTheme = (themeName: 'dark' | 'light') => {
-    console.log('theme-' + themeName);
-    document.body.className = 'theme-' + themeName;
-    setIsLightTheme(themeName === 'light')
-  };
+  function handleThemeChange(themeName: ThemeName) {
+    setTheme(themeName);
+  }
 
   return (
-    <PageLayout header={<Header onChangeTheme={changeTheme} isLightTheme={isLightTheme} />}
-                footer={<Footer text={'Мини игра на React + Vite + TS, Scss + токен дизайн'} />}
-                children={<Game />} />
+    <PageLayout header={<Header onThemeChange={handleThemeChange} title={'Крестики-нолики'} currentTheme={theme}
+                                themes={THEMES} />}
+                footer={<Footer description={'Мини игра на React + Vite + TS, Scss + токен дизайн'} />}>
+      <Game />
+    </PageLayout>
   );
 
 }

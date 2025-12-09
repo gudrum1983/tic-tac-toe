@@ -8,10 +8,12 @@
 
 @use '../tokens/space' as space;
 @use '../tokens/radius' as radius;
+@use '../tokens/size' as size;
 @use '../tokens/themes'; // внутри уже цвета и т.п.
 
 :root {
   @include space.space-vars();
   @include radius.radius-vars();
+  @include size.size-vars();
   // если нужно — типографика, z-index и прочие токены
 }

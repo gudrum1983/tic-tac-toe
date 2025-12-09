@@ -1,4 +1,5 @@
 .Board {
+  width: fit-content;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -9,6 +10,12 @@
     margin-bottom: 80px;
   }
 }
+
+.Board_Circle {
+  position: relative;
+
+}
+
 
 .Board_Square {
   position: relative;
@@ -60,7 +67,7 @@
   background: var(--color-accent);
 }
 
-@media (max-width: 670px) {
+@media (max-width: 860px) {
   .Board_Square {
     font-size: 45px;
     font-weight: bold;

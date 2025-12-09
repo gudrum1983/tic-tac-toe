@@ -1,33 +1,17 @@
 import styles from './Board.module.scss';
 import clsx from 'clsx';
-import { Paper } from '@/ui';
-import { calculateWinner, type Player } from '@/shared';
+import { calculateWinner } from '@utils';
+import type { Player } from '@types';
 
 export type BoardProps = {
-  xIsNext: boolean,
+  currentPlayer: Player,
   squares: Array<string | null>,
   onPlay: (index: number) => void
 };
 
-export function Board({ xIsNext, squares, onPlay }: BoardProps) {
+export function Board({ currentPlayer, squares, onPlay }: BoardProps) {
 
-  const currentPlayer: Player = xIsNext ? 'X' : 'O';
-
-  function handleClick(index: number) {
-
-/*
-    if (squares[index] || calculateWinner(squares)) return;
-
-    const nextSquares = [...squares];
-    nextSquares[index] = currentPlayer;
-
-    onPlay(nextSquares, index);
-*/
-
-    onPlay(index);
-  }
-
-  const Square = ({ value, onSquareClick, highlighted, disabled }: {
+    const Square = ({ value, onSquareClick, highlighted, disabled }: {
     disabled: boolean,
     highlighted: boolean,
     value: string | null,
@@ -48,19 +32,18 @@ export function Board({ xIsNext, squares, onPlay }: BoardProps) {
 
   return (
     <>
-    <Paper padding={'md'}>dfgdfgsdfg</Paper>
-    <div className={styles.Board}>
+      <div className={styles.Board}>
 
         {squares.map((square, index) => (
           <Square key={index}
                   value={square}
-                  onSquareClick={() => handleClick(index)}
+                  onSquareClick={() => onPlay(index)}
                   highlighted={winnerLine?.includes(index) ?? false}
                   disabled={Boolean(winner)} />
         ))}
 
 
-    </div>
+      </div>
 
 
     </>);

@@ -1,17 +1,10 @@
 import styles from './Footer.module.scss';
+import { Typography } from '../Typography';
 
 export type FooterProps = {
-  text: string
+  description: string
 };
 
-export function Footer({ text }: FooterProps) {
-
-  return (
-    <footer className={styles.Footer}>
-      <h2 className={'test'}>{text}</h2>
-
-      {/*https://www.youtube.com/watch?v=A4Y5VwXGG9g&t=436s*/}
-    </footer>
-  );
-
+export function Footer({ description }: FooterProps) {
+  return <footer className={styles.Footer}><Typography as={'p'} variant={'secondary'}>{description}</Typography></footer>;
 }

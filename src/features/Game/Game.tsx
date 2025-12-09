@@ -1,22 +1,11 @@
-import styles from './Game.module.scss';
 import { useMemo, useState } from 'react';
-import { Board, History, Button } from '@/ui';
-import { calculateWinner } from '@/shared/utils/calculateWinner.ts';
-import type { Player } from '@/types';
-
+import { Board, GameLayout, StatusPanel, Stepper } from '@ui';
+import { calculateWinner } from '@utils';
+import type { HistoryItem, Player } from '@types';
 
 const initialSquares: Array<null> = Array(9).fill(null);
 
-
-type HistoryItem = {
-  step: number,
-  value: Array<string | null>,
-  currentPlayer?: string,
-  coordinates?: [number, number]
-};
-
 const initialHistory: Array<HistoryItem> = [{ step: 0, value: initialSquares }];
-
 
 export function Game() {
   const [history, setHistory] = useState<Array<HistoryItem>>(initialHistory);
@@ -38,18 +27,17 @@ export function Game() {
     const nextSquares = [...currentSquares];
     nextSquares[index] = currentPlayer;
 
-    const nextCoordinates: [number, number] = [Math.floor(index/ 3 + 1), ((index + 1) % 3 === 0) ? 3 : (index + 1) % 3 ];
+    const nextCoordinates: [number, number] = [Math.floor(index / 3 + 1), ((index + 1) % 3 === 0) ? 3 : (index + 1) % 3];
 
     const nextHistory = [...history.slice(0, currentMove + 1), {
       step: currentMove + 1,
       value: nextSquares,
       coordinates: nextCoordinates,
-      currentPlayer: currentPlayer
+      currentPlayer: currentPlayer,
     }];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
   }
-
 
   function handleReset() {
     setCurrentMove(0);
@@ -57,58 +45,32 @@ export function Game() {
   }
 
   const winner: {winner: string, line: [number, number, number]} | null = calculateWinner(currentSquares);
-  // const status = !winner && currentMove > 8 ? 'НИЧЬЯ' :  winner?.winner ? 'Winner: ' + winner.winner : 'Next player: ' + (xIsNext ? 'X' : 'O');
 
   const status = !winner && currentMove > 8 ? 'НИЧЬЯ' : winner?.winner ? 'Победитель - ' + winner.winner : 'Ход игрока - ' + (xIsNext ? 'X' : 'O');
-
-  //const listHistory = isAscending ? history : history.toReversed()
 
   const sortedMoves = useMemo(() => {
     return isAscending ? history : history.toReversed();
   }, [history, isAscending]);
 
-  /*  const steps = history.map((_squares, step) => {
-      //todo refactor
-      let description;
-      if (step > 0) {
-        if (currentMove === step) {
-          description = 'Текущий шаг №' + step; //'You are at move #' + step;
-        } else {
-          description = 'Перейти на шаг №' + step; //'Go to move #' + step;
-        }
-
-      } else {
-        description = 'Перейти к началу игры'; //'Go to game start'
-      }
-
-
-      return (
-        <li key={step} className={clsx(styles.Game_ListItem, (step === currentMove) && styles.ListItem_accent )}>
-          {(step === currentMove)
-            ? <div className={styles.Game_Button_accent}>{(step !== 0) ? `Вы на шаге № ${step}` : 'Вы в начале игры'}</div>
-            : <Button onClick={() => jumpTo(step)} description={description} widthFull/>
-          }
-        </li>
-      );
-
-    });*/
-
   return (
-    <div className={styles.Game}>
-      <div className={styles.Game_Panel}>
-        <div className={styles.Game_Status}> Статус игры: {status} </div>
-        <Button onClick={handleReset} description={'Начать заново'} isAccent />
-      </div>
-
-      <div className={styles.Game_Board}>
-
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>
-      <div className={styles.Game_Info}>
-        <Button description={isAscending ? 'Шаги по возрастанию' : 'Шаги по убыванию'} widthFull isAccent textCenter
-                onClick={() => setIsAscending(!isAscending)} />
-        <History history={sortedMoves} currentMove={currentMove} setCurrentMove={setCurrentMove} />
-      </div>
-    </div>
-  );
+    <GameLayout
+      status={
+        <StatusPanel contentText={`Статус игры: ${status}`}
+                     onClick={handleReset} />
+      }
+      board={
+        <Board currentPlayer={currentPlayer}
+               squares={currentSquares}
+               onPlay={handlePlay} />
+      }
+      stepper={
+        <Stepper isAscending={isAscending}
+                 currentMove={currentMove}
+                 setCurrentMove={setCurrentMove}
+                 sortedMoves={sortedMoves}
+                 setIsAscending={setIsAscending} />
+      }
+    />
+  )
+    ;
 }
