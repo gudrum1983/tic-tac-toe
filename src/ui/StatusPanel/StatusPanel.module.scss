@@ -1,6 +1,5 @@
 .StatusPanel {
-  width: 100%;
+  width: var(--size-full);
   display: flex;
   justify-content: space-between;
-  font-size: 30px ;
 }

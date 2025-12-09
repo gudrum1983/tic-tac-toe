@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Board, GameLayout, StatusPanel, Stepper } from '@ui';
-import { calculateWinner } from '@utils';
+import { calculateWinner, PLAYERS } from '@utils';
 import type { HistoryItem, Player } from '@types';
 
 const initialSquares: Array<null> = Array(9).fill(null);
@@ -14,11 +14,10 @@ export function Game() {
 
   const currentSquares = history.find((item) => item.step === currentMove)?.value ?? initialSquares;
 
-
   //xIsNext в true, если число, на которое вы меняете currentMove, чётное.
   const xIsNext: boolean = currentMove % 2 === 0;
 
-  const currentPlayer: Player = xIsNext ? 'X' : 'O';
+  const currentPlayer: Player = xIsNext ? PLAYERS.X : PLAYERS.O;
 
   function handlePlay(index: number) {
 
@@ -55,8 +54,9 @@ export function Game() {
   return (
     <GameLayout
       status={
-        <StatusPanel contentText={`Статус игры: ${status}`}
-                     onClick={handleReset} />
+        <StatusPanel label={'Статус игры: '}
+                     statusText={status}
+                     onReset={handleReset} />
       }
       board={
         <Board currentPlayer={currentPlayer}
@@ -71,6 +71,5 @@ export function Game() {
                  setIsAscending={setIsAscending} />
       }
     />
-  )
-    ;
+  );
 }

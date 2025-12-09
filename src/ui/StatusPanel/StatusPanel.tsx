@@ -1,18 +1,21 @@
 import styles from './StatusPanel.module.scss';
 import { Button } from '../Button';
-import type { ReactNode } from 'react';
+import { Typography } from '../Typography';
 
 export type StatusPanelProps = {
-  contentText: ReactNode;
-  onClick: () => void
+  label: string;
+  statusText: string;
+  onReset: () => void
 };
 
-export function StatusPanel({ contentText, onClick }: StatusPanelProps) {
+export function StatusPanel({ label, statusText, onReset }: StatusPanelProps) {
 
   return (
     <div className={styles.StatusPanel}>
-      <div className={styles.StatusPanel_Info}>{contentText}</div>
-      <Button onClick={onClick} description={'Начать заново'} isAccent textCenter />
+      <Typography variant={'secondary'} as={'p'} size={'m'}>{label}
+        <Typography variant={'primary'} as={'span'} size={'m'}>{statusText}</Typography>
+      </Typography>
+      <Button onClick={onReset} description={'Начать заново'} isAccent textCenter />
     </div>
   );
 }

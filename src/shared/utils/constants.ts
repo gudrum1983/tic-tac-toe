@@ -6,6 +6,6 @@ export const PLAYERS = {
 };
 
 export const THEMES: Themes = [
-  {name: 'theme-light', label: 'Светлая тема' },
-  { name: 'theme-dark', label: 'Темная тема' }
+  { name: 'theme-light', label: 'Светлая тема' },
+  { name: 'theme-dark', label: 'Темная тема' },
 ] as const;
