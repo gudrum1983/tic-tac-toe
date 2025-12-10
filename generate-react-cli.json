@@ -12,7 +12,7 @@
         "index": "templates/component/index.ts"
       },
       "withIndex": true,
-      "path": "src/components",
+      "path": "src/ui",
       "withStyle": true,
       "withTest": false,
       "withStory": false,

@@ -138,3 +138,174 @@ export const HomePage = () => (
 * структура `src/`,
 * `main.scss` с темами,
 * пример `Button` и `HomePage` с импортом их модульных стилей.
+  `Unknown CSS property 'btn-padding'` — это ругань валидатора/линтера (VS Code, stylelint и т.п.).
+  Он говорит буквально: *в CSS нет свойства `btn-padding`*.
+
+Есть два варианта:
+
+1. Ты случайно написал **свойство**:
+
+```scss
+.button {
+  btn-padding: var(--space-md); // ❌ такого свойства нет
+}
+```
+
+2. Ты хотел сделать **переменную**, но забыл `--`:
+
+```scss
+.button {
+  --btn-padding: var(--space-md); // ✅ кастомное свойство
+  padding: var(--btn-padding);    // ✅ обычное свойство
+}
+```
+
+В CSS:
+
+* валидные свойства — `padding`, `margin`, `border-radius` и т.п.
+* свои можно заводить, но **только как custom properties**: `--btn-padding`, `--btn-radius` и т.д.
+
+---
+
+## Как лучше организовать токены и файлы
+
+У тебя уже хорошее деление:
+
+* `core/` — базовые вещи (normalize, глобальные настройки).
+* `tokens/` — дизайн-токены.
+
+Я бы предложил такую логику:
+
+### 1. Примитивные токены (что у тебя уже есть)
+
+`styles/tokens/_space.scss`:
+
+```scss
+$space: (
+  none: 0,
+  xs: 4px,
+  sm: 8px,
+  md: 12px,
+  lg: 16px,
+  xl: 24px,
+  xxl: 50px
+);
+
+@mixin space-vars {
+  @each $key, $value in $space {
+    --space-#{$key}: #{$value};
+  }
+}
+```
+
+`styles/tokens/_radius.scss`:
+
+```scss
+$radius: (
+  none: 0,
+  sm: 4px,
+  md: 8px,
+  lg: 999px
+);
+
+@mixin radius-vars {
+  @each $key, $value in $radius {
+    --radius-#{$key}: #{$value};
+  }
+}
+```
+
+`_palettes.scss` – чистые цвета.
+`_semantic.scss` – семантические токены типа `--color-bg-default`, `--color-text-primary` и т.п.
+`_themes.scss` – light/dark и т.д., где ты переопределяешь эти семантические токены.
+
+Например:
+
+```scss
+// _themes.scss
+@use './palettes' as pal;
+
+:root[data-theme='light'] {
+  --color-bg-default: #{pal.$white};
+  --color-text-default: #{pal.$black};
+}
+
+:root[data-theme='dark'] {
+  --color-bg-default: #{pal.$black};
+  --color-text-default: #{pal.$white};
+}
+```
+
+### 2. Где всё это подключать
+
+`styles/core/_variables.scss` (или `tokens-root.scss`):
+
+```scss
+@use '../tokens/space' as space;
+@use '../tokens/radius' as radius;
+@use '../tokens/themes'; // внутри уже цвета и т.п.
+
+:root {
+  @include space.space-vars();
+  @include radius.radius-vars();
+  // если нужно — типографика, z-index и прочие токены
+}
+```
+
+`styles/main.scss`:
+
+```scss
+@use './core/normalize';
+@use './core/variables'; // тут все токены вешаются на :root
+// дальше базовые стили, layouts, компоненты и т.д.
+```
+
+---
+
+## 3. Компонентные «базовые переменные»
+
+Для кнопки, которой не нужны модификаторы, отлично заходят **кастомные свойства на уровне компонента**, но основанные на токенах:
+
+```scss
+// Button.scss
+@use '@/styles/tokens/space' as *;
+@use '@/styles/tokens/radius' as *;
+
+.button {
+  --btn-padding-y: var(--space-sm);
+  --btn-padding-x: var(--space-md);
+  --btn-radius: var(--radius-md);
+
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  border-radius: var(--btn-radius);
+}
+```
+
+Если нужны модификаторы — ты переопределяешь **переменные**, а не пишешь новые свойства:
+
+```scss
+.button--lg {
+  --btn-padding-y: var(--space-md);
+  --btn-padding-x: var(--space-lg);
+}
+```
+
+Так:
+
+* токены (`--space-*`, `--radius-*`) живут глобально в `tokens`.
+* компонентные переменные (`--btn-*`) живут рядом с компонентом.
+* никаких `btn-padding:` как CSS-свойства → нет ошибки.
+
+---
+
+### Кратко
+
+* Ошибка `Unknown CSS property 'btn-padding'` — ты используешь несуществующее CSS-свойство. Нужно либо `padding`, либо `--btn-padding`.
+* Примитивные токены (space, radius, palettes) — в `styles/tokens/*`.
+* Генерация CSS-переменных из токенов — миксины + вызов в `core/_variables.scss` на `:root`.
+* Базовые значения для компонентов — в самих компонентах как `--btn-*`, основанные на глобальных токенах (`var(--space-sm)` и т.п.).
+
+Если покажешь кусок SCSS, где именно ругается на `btn-padding`, могу прямо точечно переписать.
+
+-------
+импорты статьи  https://sass-lang.com/documentation/at-rules/forward/ и https://sass-lang.com/documentation/at-rules/forward/
