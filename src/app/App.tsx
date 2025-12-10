@@ -23,7 +23,7 @@ export default function App() {
   return (
     <PageLayout header={<Header onThemeChange={handleThemeChange} title={'Крестики-нолики'} currentTheme={theme}
                                 themes={appThemes} />}
-                footer={<Footer description={'Мини игра на React + Vite + TS, Scss + токен дизайн'} />}>
+                footer={<Footer description={'Мини игра на React + Vite + TS, Scss модули + переменные'} />}>
       <Game />
     </PageLayout>
   );
