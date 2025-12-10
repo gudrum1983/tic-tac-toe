@@ -1,0 +1,40 @@
+.GameLayout {
+  width: var(--size-full);
+  max-width: var(--container-max);
+  display: grid;
+  row-gap: var(--space-lg);
+  column-gap: var(--space-xxl);
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "status status"
+    "board stepper";
+
+  &_Status {
+    width: var(--size-full);
+    grid-area: status;
+  }
+
+  &_Board {
+    width: var(--size-full);
+    grid-area: board;
+  }
+
+  &_Stepper {
+    width: var(--size-full);
+    grid-area: stepper;
+  }
+}
+
+@media (max-width: 1260px) {
+  .GameLayout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "status"
+    "board"
+    "stepper";
+
+    &_Board {
+      min-height: 330px;
+    }
+  }
+}

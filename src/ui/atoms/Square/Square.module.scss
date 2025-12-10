@@ -1,0 +1,49 @@
+.Square {
+  --sqr-after-opacity: 0;
+  --sqr-after-opacity-hover: 0.5;
+  --sqr-bg: var(--color-bg-secondary);
+  --sqr-size: 200px;
+  --sqr-text-size: 150px;
+  --sqr-transition-duration: opacity var(--transition-base);
+
+  position: relative;
+  background-color: var(--sqr-bg);
+  font-size: var(--sqr-text-size);
+  font-weight: bold;
+  line-height: var(--sqr-size);
+  height: var(--sqr-size);
+  padding: 0;
+  text-align: center;
+  width: var(--sqr-size);
+
+  /* Подсветка-символ при ховере только если активная, то есть есть дата атрибут на превью */
+  &[data-preview]::after {
+    content: attr(data-preview); // берём символ из атрибута
+    position: absolute;
+    inset: 0; // растянуть на всю кнопку
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: var(--sqr-after-opacity);
+    transition: var(--sqr-transition-duration);
+  }
+
+  &:hover::after {
+    opacity: var(--sqr-after-opacity-hover);
+  }
+
+  &_inactive {
+    cursor: default;
+  }
+
+  &_highlighted {
+    --sqr-bg: var(--color-accent);
+  }
+}
+
+@media (max-width: 860px) {
+  .Square {
+    --sqr-text-size: 80px;
+    --sqr-size: 100px;
+  }
+}

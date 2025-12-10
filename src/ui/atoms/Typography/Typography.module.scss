@@ -1,0 +1,49 @@
+.Typography {
+  --font-size-xs: 20px;
+  --font-size-s: 30px;
+  --font-size-m: 40px;
+  --font-size-l: 50px;
+  --font-size-xl: 60px;
+
+  &_size_xs {
+    font-size: var(--font-size-xs);
+  }
+
+  &_size_s {
+    font-size: var(--font-size-s);
+  }
+
+  &_size_m {
+    font-size: var(--font-size-m);
+  }
+
+  &_size_l {
+    font-size: var(---font-size-l);
+  }
+
+  &_size_xl {
+    font-size: var(--font-size-xl);
+  }
+
+  &_color_primary {
+    color: var(--color-text-primary);
+  }
+
+  &_color_secondary {
+    color: var(--color-text-secondary);
+  }
+
+  &_color_accent {
+    color: var(--color-text-accent);
+  }
+
+}
+
+@media (max-width: 860px) {
+  .Typography {
+  --font-size-xs: 10px;
+  --font-size-s: 20px;
+  --font-size-m: 30px;
+  --font-size-l: 40px;
+  --font-size-xl: 50px;
+}}

@@ -16,6 +16,16 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    "paths": {
+      //      "@/*": ["./src/*"] - универсально для доступа к src
+      "@app": ["./src/app/App.tsx"],
+      "@features": ["./src/features"],
+      "@types": ["./src/shared/types"],
+      "@utils": ["./src/shared/utils"],
+      "@styles": ["./src/styles"],
+      "@ui": ["./src/ui"]
+    },
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
