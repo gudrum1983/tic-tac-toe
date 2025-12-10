@@ -1,12 +1,16 @@
 import { Game } from '@features';
 import { useEffect, useState } from 'react';
 import { Footer, Header, PageLayout } from '@ui';
-import type { ThemeName } from '@types';
-import { THEMES } from '@utils';
+import type { ThemeName, Themes } from '@types';
 
 export default function App() {
 
-  const [theme, setTheme] = useState<ThemeName>(THEMES[0].name);
+  const appThemes: Themes = [
+    { name: 'theme-light', label: 'Светлая тема' },
+    { name: 'theme-dark', label: 'Темная тема' },
+  ];
+
+  const [theme, setTheme] = useState<ThemeName>(appThemes[0].name);
 
   useEffect(() => {
     document.body.className = theme;
@@ -18,7 +22,7 @@ export default function App() {
 
   return (
     <PageLayout header={<Header onThemeChange={handleThemeChange} title={'Крестики-нолики'} currentTheme={theme}
-                                themes={THEMES} />}
+                                themes={appThemes} />}
                 footer={<Footer description={'Мини игра на React + Vite + TS, Scss + токен дизайн'} />}>
       <Game />
     </PageLayout>

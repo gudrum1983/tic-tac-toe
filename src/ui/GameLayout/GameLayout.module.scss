@@ -1,37 +1,28 @@
 .GameLayout {
   width: var(--size-full);
   max-width: var(--container-max);
-border: 1px solid red;
   display: grid;
-  row-gap: 20px;
-  column-gap: 50px;
-  grid-template-columns: 1fr 300px;
+  row-gap: var(--space-lg);
+  column-gap: var(--space-xxl);
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "status status"
     "board stepper";
 
   &_Status {
-    width: 100%;
-
+    width: var(--size-full);
     grid-area: status;
   }
 
   &_Board {
-
-    width: 100%;
+    width: var(--size-full);
     grid-area: board;
   }
 
-
   &_Stepper {
-
-    width: 100%;
+    width: var(--size-full);
     grid-area: stepper;
   }
-
-
-
-
 }
 
 @media (max-width: 1260px) {
@@ -45,8 +36,5 @@ border: 1px solid red;
     &_Board {
       min-height: 330px;
     }
-
-
   }
-
 }

@@ -1,5 +1,6 @@
 import styles from './Button.module.scss';
 import clsx from 'clsx';
+import { Typography } from '../Typography';
 
 //todo: разобраться с переменными size и font в scss
 
@@ -19,6 +20,8 @@ export function Button({ description, onClick, widthFull, isAccent, textCenter }
       widthFull && styles.Button_width_full,
       isAccent && styles.Button_accent,
       textCenter && styles.Button_alignText_center,
-    )} onClick={onClick}>{description}</button>
+    )} onClick={onClick}>
+      <Typography as={'p'} variant={'secondary'} size={'m'}>{description}</Typography>
+    </button>
   );
 }

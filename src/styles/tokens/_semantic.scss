@@ -14,10 +14,9 @@ $semantic-tokens: (
         border: (palette: base, tone: 80),
         border-accent: (palette: accent, tone: 90),
 
-        text: (palette: base, tone: 90),
+        text-primary: (palette: base, tone: 90),
+        text-secondary: (palette: base, tone: 80),
         text-accent: (palette: accent, tone: 90),
-
-
 
         button-bg: (palette: base, tone: 50),
         button-bg-hover: (palette: base, tone: 40),

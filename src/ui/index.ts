@@ -9,3 +9,4 @@ export * from './PageLayout';
 export * from './GameLayout';
 export * from './StatusPanel';
 export * from './Stepper';
+export * from './Square';

@@ -1,6 +1,7 @@
 import styles from './Header.module.scss';
 import { Button, Typography } from '@ui';
 import type { ThemeName, Themes } from '@types';
+import logo from '/favicon.svg';
 
 export type HeaderProps = {
   themes: Themes;
@@ -14,7 +15,8 @@ export function Header({ onThemeChange, currentTheme, themes, title }: HeaderPro
   return (
     <div className={styles.Header}>
       <div className={styles.Header_Content}>
-        <Typography as={'h1'} variant={'secondary'} size={'xl'}>{title}</Typography>
+        <img src={logo} alt="logo" className={styles.Header_Logo}/>
+        <Typography as={'h1'} variant={'primary'} size={'xl'}>{title}</Typography>
         <div className={styles.Header_Actions}>
           {themes.map((item, index) => {
             return <Button key={item.name + index}

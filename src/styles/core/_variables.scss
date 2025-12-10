@@ -15,5 +15,7 @@
   @include space.space-vars();
   @include radius.radius-vars();
   @include size.size-vars();
+
+  --transition-base: 0.2s ease-in-out;
   // если нужно — типографика, z-index и прочие токены
 }
