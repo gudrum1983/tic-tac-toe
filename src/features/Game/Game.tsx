@@ -45,7 +45,7 @@ export function Game() {
 
   const winner: {winner: string, line: [number, number, number]} | null = calculateWinner(currentSquares);
 
-  const status = !winner && currentMove > 8 ? 'НИЧЬЯ' : winner?.winner ? 'Победитель - ' + winner.winner : 'Ход игрока - ' + (xIsNext ? 'X' : 'O');
+  const status = !winner && currentMove > 8 ? 'НИЧЬЯ' : winner?.winner ? 'Победитель - ' + winner.winner : 'Ход игрока - ' + currentPlayer;
 
   const sortedMoves = useMemo(() => {
     return isAscending ? history : history.toReversed();
