@@ -1,19 +1,31 @@
-/*
-│   ├── _variables.scss        // базовые переменные (spacing, radius, z-index, durations)
-│   ├── _mixins.scss           // миксины
-│   ├── _functions.scss        // функции (например, генерация цветов)
-│   └── _reset.scss            // normalize/reset
-
-*/
-
-@use './tokens/space' as space;
-@use './tokens/radius' as radius;
-@use './tokens/size' as size;
+@use './tokens/space' as *;
+@use './tokens/radius' as *;
+@use './tokens/size' as *;
+@use './tokens/utils' as utils;
 
 :root {
-  @include space.space-vars();
-  @include radius.radius-vars();
-  @include size.size-vars();
+  @include utils.tokens-to-vars($size, 'size');
+  @include utils.tokens-to-vars($space, 'space');
+  @include utils.tokens-to-vars($radius, 'radius');
 
+  --container-max: #{$container-max-lg};
   --transition-base: 0.2s ease-in-out;
+}
+
+@media (max-width: 1260px) {
+  :root {
+    --container-max: #{$container-max-md};
+  }
+}
+
+@media (max-width: 1020px) {
+  :root {
+    --container-max: #{$container-max-sm};
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --container-max: #{$container-max-xs};
+  }
 }

@@ -1,7 +1,7 @@
 .Square {
   --sqr-after-opacity: 0;
   --sqr-after-opacity-hover: 0.5;
-  --sqr-bg: var(--color-bg-secondary);
+  --sqr-bg: var(--color-background-interface-base-light);
   --sqr-size: 200px;
   --sqr-text-size: 150px;
   --sqr-transition-duration: opacity var(--transition-base);
@@ -37,7 +37,7 @@
   }
 
   &_highlighted {
-    --sqr-bg: var(--color-accent);
+    --sqr-bg: var(--color-background-interface-accent);
   }
 }
 

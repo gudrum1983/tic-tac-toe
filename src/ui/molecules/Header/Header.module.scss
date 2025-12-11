@@ -1,6 +1,6 @@
 .Header {
   width: var(--size-full);
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-background-interface-base-dark);
   padding: var(--space-sm);
 
   &_Content {
@@ -17,18 +17,5 @@
   &_Actions {
     display: flex;
     gap: var(--space-sm);
-  }
-
-  &_Logo {
-    width: 90px;
-    height: 90px;
-  }
-
-}
-
-@media (max-width: 860px) {
-  .Header_Logo {
-    width: 75px;
-    height: 75px;
   }
 }

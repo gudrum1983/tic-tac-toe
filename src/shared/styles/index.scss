@@ -1,7 +1,7 @@
-@forward './variables';
+@use './variables';
+@use './tokens/themes';
+
 @forward './tokens/space';
 @forward './tokens/size';
 @forward './tokens/radius';
-@forward './tokens/themes';
-@forward './tokens/semantic';
-@forward './tokens/palettes';
+

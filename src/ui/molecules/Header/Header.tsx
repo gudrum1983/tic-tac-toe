@@ -1,22 +1,23 @@
 import styles from './Header.module.scss';
-import { Typography, Button } from '../../atoms';
-import type { ThemeName, Themes } from '@types';
-import logo from '/favicon.svg';
+import { Typography, Button, Logo } from '../../atoms';
+import type { Player, ThemeName, Themes } from '@types';
+//import logo from '/favicon.svg';
 
 type HeaderProps = {
   themes: Themes;
   currentTheme: ThemeName;
   onThemeChange: (theme: ThemeName) => void;
   title: string;
+  winnerPlayer?: Player | null;
 };
 
-export function Header({ onThemeChange, currentTheme, themes, title }: HeaderProps) {
+export function Header({ onThemeChange, currentTheme, themes, title, winnerPlayer }: HeaderProps) {
 
   return (
     <div className={styles.Header}>
-      <div className={styles.Header_Content}>
-        <img src={logo} alt="logo" className={styles.Header_Logo}/>
-        <Typography as={'h1'} variant={'primary'} size={'xl'}>{title}</Typography>
+      <div className={styles.Header_Content} >
+        <Logo player={winnerPlayer}/>
+        <Typography as={'h1'} size={'xl'}>{title}</Typography>
         <div className={styles.Header_Actions}>
           {themes.map((item, index) => {
             return <Button key={item.name + index}

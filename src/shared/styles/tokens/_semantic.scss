@@ -1,34 +1,52 @@
-$semantic-tokens: (
-        bg: (palette: base, tone: 10),
-        bg-primary: (palette: base, tone: 50),
-        bg-secondary: (palette: base, tone: 30),
+$semantic-colors: (
+        //app
+        background-app-base: (palette: base, tone: 10),
+        text-app-base: (palette: base, tone: 90),
+        text-app-accent: (palette: accent, tone: 50),
 
-        accent: (palette: accent, tone: 50),
-        accent-hover: (palette: accent, tone: 10),
-        accent-active: (palette: accent, tone: 90),
+        //interface
+        background-interface-base-light: (palette: base, tone: 30),
+        background-interface-base-dark: (palette: base, tone: 50),
+        background-interface-accent: (palette: accent, tone: 50),
 
-        primary: (palette: primary, tone: 10),
-        primary-hover: (palette: primary, tone: 90),
+        text-interface-base: (palette: base, tone: 90),
+        text-interface-accent: (palette: accent, tone: 90),
 
+        separator-interface-base: (palette: base, tone: 90),
 
-        border: (palette: base, tone: 80),
-        border-accent: (palette: accent, tone: 90),
+        //button
+        background-button-base: (palette: base, tone: 50),
+        background-button-base-hover: (palette: base, tone: 40),
+        background-button-base-active: (palette: base, tone: 60),
 
-        text-primary: (palette: base, tone: 90),
-        text-secondary: (palette: base, tone: 80),
-        text-accent: (palette: accent, tone: 90),
+        background-button-accent: (palette: accent, tone: 50),
+        background-button-accent-hover: (palette: accent, tone: 10),
+        background-button-accent-active: (palette: accent, tone: 90),
 
-        button-bg: (palette: base, tone: 50),
-        button-bg-hover: (palette: base, tone: 40),
-        button-bg-active: (palette: base, tone: 60),
-
-        button-bg-accent: (palette: accent, tone: 50),
-        button-bg-accent-hover: (palette: accent, tone: 10),
-        button-bg-accent-active: (palette: accent, tone: 90),
-
-        button-border: (palette: base, tone: 80),
-        button-text: (palette: base, tone: 80),
-
-
-
+        border-button-base: (palette: base, tone: 80),
+        text-button-base: (palette: base, tone: 80),
 );
+
+
+/*
+**[category]-[type]-[item]-[subitem]-[state]**
+
+$color-background-button-primary-hover
+
+**[category]-**[type]-**[item]-[subitem]-[state]**
+
+$color-button-primary
+
+[Category]-[Type]-[Item]-[SubItem]-[State]
+
+Category – категория токена (color, font);
+
+Type – тип токена (text, background, border);
+
+Item – элемент (button, table, input);
+
+SubItem – тип элемента (primary, secondary);
+
+State – состояние элемента (default, hover, active).
+
+*/

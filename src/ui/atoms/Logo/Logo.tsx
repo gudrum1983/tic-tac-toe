@@ -1,0 +1,28 @@
+import styles from './Logo.module.scss';
+import clsx from 'clsx';
+import type { Player } from '@types';
+
+type LogoProps = {
+  player?: Player | null;
+};
+
+export function Logo({player}: LogoProps) {
+
+  return (
+    <div className={styles.Logo}>
+      <svg clipRule="evenodd" fillRule="evenodd" height="16" strokeLinejoin="round" strokeMiterlimit="2"
+           viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+        <g id="Icon">
+          <path d="m11.25 2.01v19.99c0 .414.336.75.75.75s.75-.336.75-.75v-19.99c0-.413-.336-.75-.75-.75s-.75.337-.75.75z"/>
+          <path d="m2.005 12.755h19.99c.414 0 .75-.336.75-.75s-.336-.75-.75-.75h-19.99c-.414 0-.75.336-.75.75s.336.75.75.75z"/>
+          <path className={clsx(styles.Logo_Circle, (player==='O') && styles.Logo_Circle_accent)} d="m6.005 1.76c-2.342 0-4.245 1.903-4.245 4.245 0 2.343 1.903 4.245 4.245 4.245 2.343 0 4.245-1.902 4.245-4.245 0-2.342-1.902-4.245-4.245-4.245zm0 1.5c1.515 0 2.745 1.23 2.745 2.745s-1.23 2.745-2.745 2.745-2.745-1.23-2.745-2.745 1.23-2.745 2.745-2.745z"/>
+          <path className={clsx(styles.Logo_Circle, (player==='O') && styles.Logo_Circle_accent)} d="m18 13.74c-2.346 0-4.25 1.904-4.25 4.25 0 2.345 1.904 4.25 4.25 4.25s4.25-1.905 4.25-4.25c0-2.346-1.904-4.25-4.25-4.25zm0 1.5c1.518 0 2.75 1.232 2.75 2.75 0 1.517-1.232 2.75-2.75 2.75s-2.75-1.233-2.75-2.75c0-1.518 1.232-2.75 2.75-2.75z"/>
+          <path className={clsx(styles.Logo_Cross, (player==='X') && styles.Logo_Cross_accent )} d="m14.47 3.53 6 6c.292.293.768.293 1.06 0 .293-.292.293-.768 0-1.06l-6-6c-.292-.293-.768-.293-1.06 0-.293.292-.293.768 0 1.06z"/>
+          <path className={clsx(styles.Logo_Cross, (player==='X') && styles.Logo_Cross_accent )} d="m2.47 15.53 6 6c.292.293.768.293 1.06 0 .293-.292.293-.768 0-1.06l-6-6c-.292-.293-.768-.293-1.06 0-.293.292-.293.768 0 1.06z"/>
+          <path className={clsx(styles.Logo_Cross, (player==='X') && styles.Logo_Cross_accent )} d="m15.53 9.53 6-6c.293-.292.293-.768 0-1.06-.292-.293-.768-.293-1.06 0l-6 6c-.293.292-.293.768 0 1.06.292.293.768.293 1.06 0z"/>
+          <path className={clsx(styles.Logo_Cross, (player==='X') && styles.Logo_Cross_accent )} d="m3.53 21.53 6-6c.293-.292.293-.768 0-1.06-.292-.293-.768-.293-1.06 0l-6 6c-.293.292-.293.768 0 1.06.292.293.768.293 1.06 0z"/>
+        </g>
+      </svg>
+    </div>
+  );
+}
