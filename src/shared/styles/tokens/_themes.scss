@@ -1,0 +1,23 @@
+@use "sass:map";
+@use 'palettes' as *;
+@use 'semantic' as *;
+
+@each $theme-name, $palettes in $themes {
+  .theme-#{$theme-name} {
+
+    // палитры
+    @each $palette-name, $tones in $palettes {
+      @each $tone, $value in $tones {
+        --palette-#{$palette-name}-#{$tone}: #{$value};
+      }
+    }
+
+    // семантика
+    @each $token, $data in $semantic-tokens {
+      $palette: map.get($data, palette);
+      $tone: map.get($data, tone);
+      --color-#{$token}: var(--palette-#{$palette}-#{$tone});
+    }
+  }
+
+}

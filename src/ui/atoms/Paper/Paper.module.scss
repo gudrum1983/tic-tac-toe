@@ -1,4 +1,4 @@
-@use '../../../styles/index' as styles;
+@use '@shared/styles' as styles;
 
 .Paper {
   display: flex;
@@ -18,8 +18,6 @@
   &_fullWidth {
     width: 100%;
   }
-
-
 
 
   //генерация модификаторов по паддингам

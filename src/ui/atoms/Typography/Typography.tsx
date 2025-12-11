@@ -14,7 +14,7 @@ type TypographyOwnProps<E extends TypographyTag = typeof defaultElement> = {
   as?: E;
 };
 
-export type TypographyProps<E extends TypographyTag = typeof defaultElement> =
+type TypographyProps<E extends TypographyTag = typeof defaultElement> =
   TypographyOwnProps<E> &
   Omit<ComponentPropsWithoutRef<E>, keyof TypographyOwnProps<E>>;
 

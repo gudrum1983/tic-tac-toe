@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import styles from './Paper.module.scss';
 import type { TokenRadius, TokenSize } from '@types';
 
-export type PaperProps = {
+type PaperProps = {
   noPadding?: boolean;
   noRadius?: boolean;
   padding?: TokenSize;

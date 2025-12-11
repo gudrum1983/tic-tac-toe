@@ -3,7 +3,7 @@ import { Typography, Button } from '../../atoms';
 import type { ThemeName, Themes } from '@types';
 import logo from '/favicon.svg';
 
-export type HeaderProps = {
+type HeaderProps = {
   themes: Themes;
   currentTheme: ThemeName;
   onThemeChange: (theme: ThemeName) => void;

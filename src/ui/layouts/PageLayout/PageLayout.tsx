@@ -2,7 +2,7 @@ import styles from './PageLayout.module.scss';
 import type { ReactNode } from 'react';
 import clsx from 'clsx';
 
-export type PageLayoutProps = {
+type PageLayoutProps = {
   header: ReactNode,
   footer: ReactNode,
   children: ReactNode,

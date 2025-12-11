@@ -2,7 +2,7 @@ import styles from './GameLayout.module.scss';
 import type { ReactNode } from 'react';
 import { Paper } from '../../atoms';
 
-export type GameLayoutProps = {
+type GameLayoutProps = {
   status: ReactNode;
   board: ReactNode;
   stepper: ReactNode;

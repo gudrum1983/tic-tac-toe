@@ -1,7 +1,7 @@
 import styles from './StatusPanel.module.scss';
 import { Typography, Button } from '../../atoms';
 
-export type StatusPanelProps = {
+type StatusPanelProps = {
   label: string;
   statusText: string;
   onReset: () => void

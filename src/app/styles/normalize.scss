@@ -1,0 +1,8 @@
+@use '@a1rth/css-normalize';
+
+/*https://www.youtube.com/watch?v=A4Y5VwXGG9g&t=436s*/
+
+button:where([class]) {
+  color: inherit;
+  border: none;
+}

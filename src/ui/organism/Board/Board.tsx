@@ -3,7 +3,7 @@ import { calculateWinner } from '@utils';
 import type { Player } from '@types';
 import { Square } from '../../atoms';
 
-export type BoardProps = {
+type BoardProps = {
   currentPlayer: Player,
   squares: Array<string | null>,
   onPlay: (index: number) => void

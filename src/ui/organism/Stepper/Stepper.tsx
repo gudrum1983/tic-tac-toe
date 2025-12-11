@@ -3,7 +3,7 @@ import { Button, Typography } from '../../atoms';
 import clsx from 'clsx';
 import type { HistoryItem } from '@types';
 
-export type StepperProps = {
+type StepperProps = {
   isAscending: boolean,
   setIsAscending: (value: boolean) => void,
   sortedMoves: Array<HistoryItem>,
@@ -20,7 +20,6 @@ export function Stepper({ isAscending, setIsAscending, sortedMoves, currentMove,
     const isCurrentStep = (squares.step === currentMove);
     const coordinatesText = squares.coordinates ? '(' + squares.coordinates[0] + ',' + squares.coordinates[1] + ')' : '';
     const currentPlayerText = squares.currentPlayer ? squares.currentPlayer : '';
-
 
     const baseDescription = isStartStep
       ? 'К началу игры'
