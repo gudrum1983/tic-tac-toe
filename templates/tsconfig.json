@@ -2,11 +2,13 @@
   "compilerOptions": {
     "noEmit": true,
     "strict": false,
-   //"skipLibCheck": true,
-   //"checkJs": false,
-   //"allowJs": true,
-   "jsx": "react-jsx",
+    //"skipLibCheck": true,
+    //"checkJs": false,
+    //"allowJs": true,
+    "jsx": "react-jsx"
     //"isolatedModules": false
   },
-  "include": ["**/*"]
+  "include": [
+    "**/*"
+  ]
 }

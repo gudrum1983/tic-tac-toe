@@ -17,6 +17,58 @@
       "withTest": false,
       "withStory": false,
       "withLazy": false
+    },
+    "layout": {
+        "customTemplates": {
+          "component": "templates/component/TemplateName.tsx",
+          "style": "templates/component/TemplateName.module.scss",
+          "index": "templates/component/index.ts"
+        },
+        "withIndex": true,
+        "path": "src/ui/layouts",
+        "withStyle": true,
+        "withTest": false,
+        "withStory": false,
+        "withLazy": false
+    },
+    "atom": {
+      "customTemplates": {
+        "component": "templates/component/TemplateName.tsx",
+        "style": "templates/component/TemplateName.module.scss",
+        "index": "templates/component/index.ts"
+      },
+      "withIndex": true,
+      "path": "src/ui/atoms",
+      "withStyle": true,
+      "withTest": false,
+      "withStory": false,
+      "withLazy": false
+    },
+    "molecule": {
+        "customTemplates": {
+          "component": "templates/component/TemplateName.tsx",
+          "style": "templates/component/TemplateName.module.scss",
+          "index": "templates/component/index.ts"
+        },
+        "withIndex": true,
+        "path": "src/ui/molecules",
+        "withStyle": true,
+        "withTest": false,
+        "withStory": false,
+        "withLazy": false
+    },
+    "organism": {
+        "customTemplates": {
+          "component": "templates/component/TemplateName.tsx",
+          "style": "templates/component/TemplateName.module.scss",
+          "index": "templates/component/index.ts"
+        },
+        "withIndex": true,
+        "path": "src/ui/organism",
+        "withStyle": true,
+        "withTest": false,
+        "withStory": false,
+        "withLazy": false
     }
   }
 }
