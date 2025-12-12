@@ -6,5 +6,5 @@ type FooterProps = {
 };
 
 export function Footer({ description }: FooterProps) {
-  return <footer className={styles.Footer}><Typography as={'p'} variant={'secondary'}>{description}</Typography></footer>;
+  return <footer className={styles.Footer}><Typography as={'p'}>{description}</Typography></footer>;
 }
