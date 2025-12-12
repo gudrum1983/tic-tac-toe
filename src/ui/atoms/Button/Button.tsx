@@ -21,7 +21,7 @@ export function Button({ description, onClick, widthFull, isAccent, textCenter }
       isAccent && styles.Button_accent,
       textCenter && styles.Button_alignText_center,
     )} onClick={onClick}>
-      <Typography as={'p'} variant={'secondary'} size={'m'}>{description}</Typography>
+      <Typography as={'p'} size={'m'}>{description}</Typography>
     </button>
   );
 }
