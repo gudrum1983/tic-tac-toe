@@ -1,7 +1,6 @@
 import styles from './Header.module.scss';
 import { Typography, Button, Logo } from '../../atoms';
 import type { Player, ThemeName, Themes } from '@types';
-//import logo from '/favicon.svg';
 
 type HeaderProps = {
   themes: Themes;
@@ -11,12 +10,12 @@ type HeaderProps = {
   winnerPlayer?: Player | null;
 };
 
-export function Header({ onThemeChange, currentTheme, themes, title, winnerPlayer }: HeaderProps) {
+export function Header({ onThemeChange, currentTheme, themes, title }: HeaderProps) {
 
   return (
     <div className={styles.Header}>
       <div className={styles.Header_Content} >
-        <Logo player={winnerPlayer}/>
+        <Logo/>
         <Typography as={'h1'} size={'xl'}>{title}</Typography>
         <div className={styles.Header_Actions}>
           {themes.map((item, index) => {

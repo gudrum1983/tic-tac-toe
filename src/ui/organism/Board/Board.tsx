@@ -1,5 +1,4 @@
 import styles from './Board.module.scss';
-import { calculateWinner } from '@utils';
 import type { Player } from '@types';
 import { Square } from '../../atoms';
 
@@ -7,13 +6,10 @@ type BoardProps = {
   currentPlayer: Player,
   squares: Array<string | null>,
   onPlay: (index: number) => void
+  winnerLine?: [number, number, number] | null
 };
 
-export function Board({ currentPlayer, squares, onPlay }: BoardProps) {
-
-  const winner: {winner: string, line: [number, number, number]} | null = calculateWinner(squares);
-
-  const winnerLine = winner?.line ?? null;
+export function Board({ currentPlayer, squares, onPlay, winnerLine }: BoardProps) {
 
   return (
     <div className={styles.Board}>
@@ -23,7 +19,7 @@ export function Board({ currentPlayer, squares, onPlay }: BoardProps) {
                 value={square}
                 onSquareClick={() => onPlay(index)}
                 highlighted={winnerLine?.includes(index) ?? false}
-                disabled={Boolean(winner)} />
+                disabled={Boolean(winnerLine)} />
       ))}
     </div>
   );

@@ -26,27 +26,3 @@ $semantic-colors: (
         border-button-base: (palette: base, tone: 80),
         text-button-base: (palette: base, tone: 80),
 );
-
-
-/*
-**[category]-[type]-[item]-[subitem]-[state]**
-
-$color-background-button-primary-hover
-
-**[category]-**[type]-**[item]-[subitem]-[state]**
-
-$color-button-primary
-
-[Category]-[Type]-[Item]-[SubItem]-[State]
-
-Category – категория токена (color, font);
-
-Type – тип токена (text, background, border);
-
-Item – элемент (button, table, input);
-
-SubItem – тип элемента (primary, secondary);
-
-State – состояние элемента (default, hover, active).
-
-*/
