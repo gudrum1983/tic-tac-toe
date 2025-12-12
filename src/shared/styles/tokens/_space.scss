@@ -1,4 +1,4 @@
-$radius: (
+$space: (
         none: 0,
         xxs: 4px,
         xs: 8px,
@@ -8,9 +8,3 @@ $radius: (
         xl: 32px,
         xxl: 50px
 );
-
-@mixin radius-vars {
-  @each $key, $value in $radius {
-    --radius-#{$key}: #{$value};
-  }
-}

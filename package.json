@@ -11,7 +11,11 @@
     "preview": "vite preview",
     "predeploy": "pnpm build",
     "deploy": "gh-pages -d dist",
-    "component": "generate-react component"
+    "gen:component": "pnpm generate-react component",
+    "gen:atom": "pnpm generate-react component --type=atom",
+    "gen:layout": "pnpm generate-react component --type=layout",
+    "gen:organism": "pnpm generate-react component --type=organism",
+    "gen:molecule": "pnpm generate-react component --type=molecule"
   },
   "dependencies": {
     "@a1rth/css-normalize": "^1.2.4",

@@ -18,8 +18,9 @@
 
     "paths": {
       //      "@/*": ["./src/*"] - универсально для доступа к src
-      "@app": ["./src/app/App.tsx"],
+      "@app": ["./src/app"],
       "@features": ["./src/features"],
+      "@shared/*": ["./src/shared/*"],
       "@types": ["./src/shared/types"],
       "@utils": ["./src/shared/utils"],
       "@styles": ["./src/styles"],

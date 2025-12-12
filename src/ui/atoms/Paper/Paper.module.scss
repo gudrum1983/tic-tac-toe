@@ -1,10 +1,9 @@
-@use '../../../styles/index' as styles;
+@use '@shared/styles' as styles;
 
 .Paper {
   display: flex;
   justify-content: center;
-  background: var(--color-bg-secondary);
-  color: var(--color-text);
+  background: var(--color-background-interface-base-light);
   padding: 0;
   margin: 0;
   border-radius: 0;
@@ -18,8 +17,6 @@
   &_fullWidth {
     width: 100%;
   }
-
-
 
 
   //генерация модификаторов по паддингам

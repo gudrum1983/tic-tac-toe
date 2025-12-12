@@ -1,10 +1,10 @@
 import styles from './Button.module.scss';
 import clsx from 'clsx';
-import { Typography } from '../index.ts';
+import { Typography } from '../Typography';
 
 //todo: разобраться с переменными size и font в scss
 
-export type ButtonProps = {
+type ButtonProps = {
   description?: string,
   onClick?: () => void,
   widthFull?: boolean,

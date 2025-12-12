@@ -1,7 +1,7 @@
 import styles from './Footer.module.scss';
 import { Typography } from '../../atoms';
 
-export type FooterProps = {
+type FooterProps = {
   description: string
 };
 

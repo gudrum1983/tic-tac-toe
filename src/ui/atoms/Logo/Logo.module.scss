@@ -1,0 +1,15 @@
+.Logo {
+  --svg-size: 90px;
+
+  svg {
+    width: var(--svg-size);
+    height: var(--svg-size);
+    fill: var(--color-text-app-base);
+  }
+}
+
+@media (max-width: 860px) {
+  .Logo {
+    --svg-size: 70px;
+  }
+}
