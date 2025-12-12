@@ -1,0 +1,28 @@
+$semantic-colors: (
+        //app
+        background-app-base: (palette: base, tone: 10),
+        text-app-base: (palette: base, tone: 90),
+        text-app-accent: (palette: accent, tone: 50),
+
+        //interface
+        background-interface-base-light: (palette: base, tone: 30),
+        background-interface-base-dark: (palette: base, tone: 50),
+        background-interface-accent: (palette: accent, tone: 50),
+
+        text-interface-base: (palette: base, tone: 90),
+        text-interface-accent: (palette: accent, tone: 90),
+
+        separator-interface-base: (palette: base, tone: 90),
+
+        //button
+        background-button-base: (palette: base, tone: 50),
+        background-button-base-hover: (palette: base, tone: 40),
+        background-button-base-active: (palette: base, tone: 60),
+
+        background-button-accent: (palette: accent, tone: 50),
+        background-button-accent-hover: (palette: accent, tone: 10),
+        background-button-accent-active: (palette: accent, tone: 90),
+
+        border-button-base: (palette: base, tone: 80),
+        text-button-base: (palette: base, tone: 80),
+);

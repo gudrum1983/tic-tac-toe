@@ -1,0 +1,18 @@
+$size: (
+        none: 0,
+        xxs: 4px,
+        xs: 8px,
+        sm: 10px,
+        md: 16px,
+        lg: 24px,
+        xl: 32px,
+        xxl: 50px,
+        full: 100%,
+        fit: fit-content,
+);
+
+//todo отрефакторить
+$container-max-xs: 420px;
+$container-max-sm: 710px;
+$container-max-md: 960px;
+$container-max-lg: 1200px;

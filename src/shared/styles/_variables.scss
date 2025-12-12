@@ -1,0 +1,31 @@
+@use './tokens/space' as *;
+@use './tokens/radius' as *;
+@use './tokens/size' as *;
+@use './tokens/utils' as utils;
+
+:root {
+  @include utils.tokens-to-vars($size, 'size');
+  @include utils.tokens-to-vars($space, 'space');
+  @include utils.tokens-to-vars($radius, 'radius');
+
+  --container-max: #{$container-max-lg};
+  --transition-base: 0.2s ease-in-out;
+}
+
+@media (max-width: 1260px) {
+  :root {
+    --container-max: #{$container-max-md};
+  }
+}
+
+@media (max-width: 1020px) {
+  :root {
+    --container-max: #{$container-max-sm};
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --container-max: #{$container-max-xs};
+  }
+}

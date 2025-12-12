@@ -1,4 +1,4 @@
-$space: (
+$radius: (
         none: 0,
         xxs: 4px,
         xs: 8px,
@@ -8,9 +8,3 @@ $space: (
         xl: 32px,
         xxl: 50px
 );
-
-@mixin space-vars {
-  @each $key, $value in $space {
-    --space-#{$key}: #{$value};
-  }
-}

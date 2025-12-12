@@ -2,18 +2,21 @@
 @use 'palettes' as *;
 @use 'semantic' as *;
 
-@each $theme-name, $palettes in $themes {
-  .theme-#{$theme-name} {
+/*Создание селекторов тем и переменных из карты тем и палетки в файле src/shared/styles/tokens/_palettes.scss +
+цвета из src/shared/styles/tokens/_semantic.scss */
 
-    // палитры
+@each $theme-name, $palettes in $themes {
+  //создается селектор темы
+  .theme-#{$theme-name} {
+    // создание переменных по
     @each $palette-name, $tones in $palettes {
       @each $tone, $value in $tones {
         --palette-#{$palette-name}-#{$tone}: #{$value};
       }
     }
 
-    // семантика
-    @each $token, $data in $semantic-tokens {
+    // семантические переменные
+    @each $token, $data in $semantic-colors {
       $palette: map.get($data, palette);
       $tone: map.get($data, tone);
       --color-#{$token}: var(--palette-#{$palette}-#{$tone});

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Footer, Header, PageLayout } from '@ui';
 import type { ThemeName, Themes } from '@types';
 
-export default function App() {
+export function App() {
 
   const appThemes: Themes = [
     { name: 'theme-light', label: 'Светлая тема' },

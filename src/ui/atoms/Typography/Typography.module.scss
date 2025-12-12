@@ -25,16 +25,12 @@
     font-size: var(--font-size-xl);
   }
 
-  &_color_primary {
-    color: var(--color-text-primary);
-  }
-
-  &_color_secondary {
-    color: var(--color-text-secondary);
+  &_color_base {
+    color: var(--color-text-interface-base);
   }
 
   &_color_accent {
-    color: var(--color-text-accent);
+    color: var(--color-text-interface-accent);
   }
 
 }

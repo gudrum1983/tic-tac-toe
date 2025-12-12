@@ -9,12 +9,12 @@ const defaultElement: TypographyTag = 'div';
 type TypographyOwnProps<E extends TypographyTag = typeof defaultElement> = {
   children: ReactNode;
   size?: 'xs' | 's' | 'm' | 'l' | 'xl';
-  variant?: 'primary' | 'secondary' | 'accent' | 'error' | 'warning';
+  variant?: 'base' | 'accent';
   extraClass?: string;
   as?: E;
 };
 
-export type TypographyProps<E extends TypographyTag = typeof defaultElement> =
+type TypographyProps<E extends TypographyTag = typeof defaultElement> =
   TypographyOwnProps<E> &
   Omit<ComponentPropsWithoutRef<E>, keyof TypographyOwnProps<E>>;
 
@@ -23,7 +23,7 @@ export function Typography<E extends TypographyTag = typeof defaultElement>({
                                                                               children,
                                                                               as,
                                                                               size = 'm',
-                                                                              variant = 'primary',
+                                                                              variant = 'base',
                                                                               extraClass,
                                                                               ...otherProps
                                                                             }: TypographyProps<E>) {

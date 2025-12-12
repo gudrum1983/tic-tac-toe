@@ -2,7 +2,7 @@ import styles from './Square.module.scss';
 import clsx from 'clsx';
 import type { Player } from '@types';
 
-export type SquareProps = {
+type SquareProps = {
   disabled: boolean,
   highlighted: boolean,
   value: string | null,
